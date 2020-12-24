@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="columns_array">
+        <item>5  Columns</item>
+        <item>10  Columns</item>
+        <item>15  Columns</item>
+        <item>20  Columns</item>
+        <item>25  Columns</item>
+        <item>30  Columns</item>
+        <item>35  Columns</item>
+        <item>40  Columns</item>
+    </array>
+    <array name="players_array">
+        <item>1  Players</item>
+        <item>2  Players</item>
+        <item>3  Players</item>
+        <item>4  Players</item>
+        <item>5  Players</item>
+        <item>6  Players</item>
+        <item>7  Players</item>
+    </array>
+</resources>

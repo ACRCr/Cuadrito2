@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Offline">Offline</string>
+    <string name="Online">Online</string>
+    <string name="SeeGrid">See Grid</string>
+    <string name="app_name">My Application</string>
+    <string name="grid">Grid</string>
+    <string name="more">More players</string>
+    <string name="otherGrid">Other Grid</string>
+    <string name="play">Play</string>
+    <string name="players">Players</string>
+    <string name="search_menu_title">Search</string>
+
+</resources>
