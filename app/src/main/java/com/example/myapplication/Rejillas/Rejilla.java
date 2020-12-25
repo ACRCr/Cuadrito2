@@ -1453,7 +1453,6 @@ public class Rejilla extends View {
                                     lineaH4 = (float) it;
                                 }
                                 it++;
-                                distanciaH = distanciaH;
                                 dist = dist;
                             }
                             float lineaH6 = ((float) it) - lineaH4;
@@ -1508,21 +1507,18 @@ public class Rejilla extends View {
                 Double.isNaN(d26);
                 if (f <= ((float) ((int) (d26 / 2.0d)))) {
                     lineaH = lineaH4;
-                    distanciaV2 = distanciaV2;
                     for (int j5 = 1; j5 <= this.filas - 2; j5++) {
                         if (Math.abs(y - (this.f84y0 + (((float) j5) * zoom))) < distanciaV2) {
                             distanciaV2 = y - (this.f84y0 + (((float) j5) * zoom));
                             lineaH = (float) j5;
                         }
                     }
-                    distanciaH = distanciaH;
                     str = str3;
                 } else {
                     double d27 = (double) i6;
                     Double.isNaN(d27);
                     if (f > ((float) ((this.filas - 1) - ((int) (d27 / 2.0d))))) {
                         float lineaH7 = lineaH4;
-                        distanciaV2 = distanciaV2;
                         for (int j6 = this.ncolumnasZoom; j6 >= 1; j6--) {
                             if (Math.abs(y - (this.f85yf - (((float) j6) * zoom))) < distanciaV2) {
                                 distanciaV2 = y - (this.f85yf - (((float) j6) * zoom));
@@ -1644,8 +1640,7 @@ public class Rejilla extends View {
                 distanciaV = distanciaV2;
                 str = str3;
             }
-            distanciaV2 = distanciaV;
-        }
+         }
         if ((lineaDeEnfoqueV2 != 0.0f) || (lineaDeEnfoqueH2 != 0.0f)) {
             boolean z = lineaDeEnfoqueV2 <= 4.0f;
             double d44 = (double) ncolumnasZoom2;
@@ -1812,7 +1807,7 @@ public class Rejilla extends View {
                                 Double.isNaN(d65);
                                 if (z14 && (f9 > ((float) ((this.filas - 1) - ((int) (d65 / 2.0d)))))) {
                                     lineaV += this.lineaDeEnfoqueV - 4.0f;
-                                    lineaH += (float) ((this.filas - 2) - this.ncolumnasZoom);
+                                     lineaH += (float) ((this.filas - 2) - this.ncolumnasZoom);
                                 } else {
                                     boolean z15 = this.lineaDeEnfoqueV > 4.0f;
                                     float f10 = this.lineaDeEnfoqueH;
