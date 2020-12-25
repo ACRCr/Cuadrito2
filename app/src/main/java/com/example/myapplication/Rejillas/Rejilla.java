@@ -1372,24 +1372,11 @@ public class Rejilla extends View {
         float distanciaH = (float) this.width;
         float distanciaV2 = (float) this.height;
         float[] array = new float[4];
-        int j = 0;
-        for (int i = 1; j <= this.columnasi - i; i = 1) {
-            double d = (double) x;
-            double d2 = (double) this.f82x0;
-            Double.isNaN(d2);
-            double d3 = d2 + (this.dig * 0.005d);
-            double d4 = (double) (((float) j) * zoom);
-
-            if (Math.abs(d - (d3 + d4)) < ((double) distanciaH)) {
-                double d5 = (double) x;
-                double d6 = (double) this.f82x0;
-                double d7 = d6 + (this.dig * 0.005d);
-                double d8 = (double) (((float) j) * zoom);
-
+        for (int j = 0; j <= this.columnasi - 1; j++) {
+            if (Math.abs(x - (f82x0 + (this.dig * 0.005d) + (j*zoom))) < ((double) distanciaH)) {
                 lineaV = (float) j;
-                distanciaH = (float) (d5 - (d7 + d8));
+                distanciaH = (float) (x - (f82x0 + (this.dig * 0.005d) + (j*zoom)));
             }
-            j++;
         }
         float lineaH4 = lineaH3;
         String str3 = "zooom123 ";
@@ -1591,7 +1578,6 @@ public class Rejilla extends View {
                                 }
                                 it12++;
                                 it2 = it2;
-                                lineaV = lineaV;
                             }
                             int it13 = it12 - 1;
                             float lineaH10 = lineaH9 + linea2;
@@ -1602,9 +1588,7 @@ public class Rejilla extends View {
                             }
                             lineaH = lineaH10;
                             distanciaH = distanciaH;
-                            str = str3;
-                            lineaV = lineaV;
-                        } else {
+                            str = str3; } else {
                             distanciaH = distanciaH;
                             lineaH2 = lineaH4;
                             distanciaV = distanciaV2;
@@ -1615,7 +1599,6 @@ public class Rejilla extends View {
             } else if (!band) {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(" ");
-                lineaV = lineaV;
                 sb2.append(lineaV);
                 sb2.append(" ");
                 lineaH2 = lineaH4;
