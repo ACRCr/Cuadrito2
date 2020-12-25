@@ -1357,9 +1357,10 @@ public class Rejilla extends View {
     /* JADX WARNING: Removed duplicated region for block: B:337:0x06d4  */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public float[] obtenerLineas(float x, float y, float zoom, float lineaDeEnfoqueV2, float lineaDeEnfoqueH2, float ncolumnasZoom2, boolean band) {
-        float lineaH;
+        float lineaH=0;
         String str;
         String str2;
+
         float distanciaV=0;
         float lineaH2=0;
         float dist = 0.0f;
@@ -1378,22 +1379,17 @@ public class Rejilla extends View {
             Double.isNaN(d2);
             double d3 = d2 + (this.dig * 0.005d);
             double d4 = (double) (((float) j) * zoom);
-            Double.isNaN(d4);
-            Double.isNaN(d);
+
             if (Math.abs(d - (d3 + d4)) < ((double) distanciaH)) {
                 double d5 = (double) x;
                 double d6 = (double) this.f82x0;
-                Double.isNaN(d6);
                 double d7 = d6 + (this.dig * 0.005d);
                 double d8 = (double) (((float) j) * zoom);
-                Double.isNaN(d8);
-                Double.isNaN(d5);
+
                 lineaV = (float) j;
                 distanciaH = (float) (d5 - (d7 + d8));
             }
             j++;
-            array = array;
-            lineaH3 = lineaH3;
         }
         float lineaH4 = lineaH3;
         String str3 = "zooom123 ";
@@ -1409,7 +1405,6 @@ public class Rejilla extends View {
         } else {
             if ((lineaDeEnfoqueH2 != 0.0f) || (lineaDeEnfoqueV2 != 0.0f)) {
                 double d9 = (double) ncolumnasZoom2;
-                Double.isNaN(d9);
                 if (lineaDeEnfoqueH2 <= ((float) ((int) (d9 / 2.0d)))) {
                     lineaH = lineaH4;
                     for (int j3 = 1; j3 <= this.filas - 2; j3++) {
@@ -1422,7 +1417,6 @@ public class Rejilla extends View {
                 } else {
                     int i2 = this.filas - 1;
                     double d10 = (double) ncolumnasZoom2;
-                    Double.isNaN(d10);
                     if (lineaDeEnfoqueH2 > ((float) (i2 - ((int) (d10 / 2.0d))))) {
                         float lineaH5 = lineaH4;
                         for (int j4 = (int) ncolumnasZoom2; j4 >= 1; j4--) {
@@ -1436,7 +1430,6 @@ public class Rejilla extends View {
                         str = str3;
                     } else {
                         double d11 = (double) ncolumnasZoom2;
-                        Double.isNaN(d11);
                         if (lineaDeEnfoqueH2 > ((float) ((int) (d11 / 2.0d)))) {
                             int i3 = this.height;
                             float distanciaV1 = (float) i3;
@@ -1445,30 +1438,23 @@ public class Rejilla extends View {
                             while (true) {
                                 int i4 = this.height;
                                 double d12 = (double) i4;
-                                Double.isNaN(d12);
                                 double d13 = (double) (((float) it) * zoom);
-                                Double.isNaN(d13);
                                 if ((d12 / 2.0d) - d13 <= ((double) this.f84y0)) {
                                     break;
                                 }
                                 double d14 = (double) y;
                                 double d15 = (double) i4;
-                                Double.isNaN(d15);
                                 double d16 = (double) (((float) it) * zoom);
-                                Double.isNaN(d16);
-                                Double.isNaN(d14);
+
                                 if (Math.abs(d14 - ((d15 / 2.0d) - d16)) < ((double) Math.abs(distanciaV1))) {
                                     double d17 = (double) this.height;
-                                    Double.isNaN(d17);
                                     double d18 = (double) (((float) it) * zoom);
-                                    Double.isNaN(d18);
                                     distanciaV1 = y - ((float) ((d17 / 2.0d) - d18));
                                     lineaH4 = (float) it;
                                 }
                                 it++;
                                 distanciaH = distanciaH;
                                 dist = dist;
-                                distanciaV2 = distanciaV2;
                             }
                             float lineaH6 = ((float) it) - lineaH4;
                             int it1 = 1;
@@ -1476,23 +1462,17 @@ public class Rejilla extends View {
                             while (true) {
                                 int i5 = this.height;
                                 double d19 = (double) i5;
-                                Double.isNaN(d19);
                                 double d20 = (double) (((float) it1) * zoom);
-                                Double.isNaN(d20);
                                 if ((d19 / 2.0d) + d20 >= ((double) this.f85yf)) {
                                     break;
                                 }
                                 double d21 = (double) y;
                                 double d22 = (double) i5;
-                                Double.isNaN(d22);
                                 double d23 = (double) (((float) it1) * zoom);
-                                Double.isNaN(d23);
-                                Double.isNaN(d21);
+
                                 if (Math.abs(d21 - ((d22 / 2.0d) + d23)) < ((double) Math.abs(distanciaV1))) {
                                     double d24 = (double) this.height;
-                                    Double.isNaN(d24);
                                     double d25 = (double) (((float) it1) * zoom);
-                                    Double.isNaN(d25);
                                     distanciaV1 = y - ((float) ((d24 / 2.0d) + d25));
                                     linea = (float) it1;
                                 }
@@ -1663,9 +1643,7 @@ public class Rejilla extends View {
                 lineaH2 = lineaH4;
                 distanciaV = distanciaV2;
                 str = str3;
-                lineaV = lineaV;
             }
-            lineaH = lineaH2;
             distanciaV2 = distanciaV;
         }
         if ((lineaDeEnfoqueV2 != 0.0f) || (lineaDeEnfoqueH2 != 0.0f)) {
