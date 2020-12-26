@@ -1487,9 +1487,8 @@ public class Rejilla extends View {
                     } else {
 
                         if ( this.lineaDeEnfoqueH > ((float) ((int) ( this.ncolumnasZoom / 2.0d)))) {
-                            int i7 = this.height;
-                            float distanciaV12 = (float) i7;
-                            float distanciaV23 = (float) i7;
+                            float distanciaV12 = (float) this.height;
+                            float distanciaV23 = (float) this.height;
                             int it2 = 0;
                             float lineaH8 = lineaH4;
                             while (true) {
@@ -1533,27 +1532,6 @@ public class Rejilla extends View {
                         }
                     }
                 }
-            } else if (!band) {
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append(" ");
-                sb2.append(lineaV);
-                sb2.append(" ");
-                lineaH2 = lineaH4;
-                sb2.append(lineaH2);
-                sb2.append(" ");
-                distanciaV = distanciaV2;
-                sb2.append(distanciaV);
-                sb2.append(" ");
-                distanciaH = distanciaH;
-                sb2.append(distanciaH);
-                sb2.append(" ");
-                sb2.append(this.ncolumnasZoom);
-                sb2.append(" ");
-                double d43 = (double) this.ncolumnasZoom;
-                Double.isNaN(d43);
-                sb2.append((int) (d43 / 2.0d));
-                str = str3;
-                Log.i(str, sb2.toString());
             } else {
                 distanciaH = distanciaH;
                 lineaH2 = lineaH4;
@@ -1562,62 +1540,33 @@ public class Rejilla extends View {
             }
          }
         if ((lineaDeEnfoqueV2 != 0.0f) || (lineaDeEnfoqueH2 != 0.0f)) {
-            boolean z = lineaDeEnfoqueV2 <= 4.0f;
-            double d44 = (double) ncolumnasZoom2;
-            Double.isNaN(d44);
-            if (z && (lineaDeEnfoqueH2 > ((float) ((this.filas - 1) - ((int) (d44 / 2.0d)))))) {
+            if ((lineaDeEnfoqueV2 <= 4.0f) && (lineaDeEnfoqueH2 > ((float) ((this.filas - 1) - ((int) (ncolumnasZoom2 / 2.0d)))))) {
                 lineaH += ((float) (this.filas - 2)) - ncolumnasZoom2;
             } else {
-                boolean z2 = lineaDeEnfoqueV2 <= 4.0f;
-                double d45 = (double) ncolumnasZoom2;
-                Double.isNaN(d45);
-                if (z2 && (lineaDeEnfoqueH2 > ((float) ((int) (d45 / 2.0d))))) {
-                    double d46 = (double) (ncolumnasZoom2 + 1.0f);
-                    Double.isNaN(d46);
-                    lineaH += lineaDeEnfoqueH2 - ((float) ((int) (d46 / 2.0d)));
+                if (lineaDeEnfoqueV2 <= 4.0f && (lineaDeEnfoqueH2 > ((float) ((int) (ncolumnasZoom2 / 2.0d))))) {
+                    lineaH += lineaDeEnfoqueH2 - ((float) ((int) ((ncolumnasZoom2 + 1.0f) / 2.0d)));
                 } else {
-                    boolean z3 = lineaDeEnfoqueV2 > ((float) (this.columnasi - 4));
-                    double d47 = (double) ncolumnasZoom2;
-                    Double.isNaN(d47);
-                    if (z3 && (lineaDeEnfoqueH2 > ((float) ((this.filas - 1) - ((int) (d47 / 2.0d)))))) {
+
+                    if ((lineaDeEnfoqueV2 > ((float) (this.columnasi - 4))) && (lineaDeEnfoqueH2 > ((float) ((this.filas - 1) - ((int) (ncolumnasZoom2 / 2.0d)))))) {
                         lineaV += (float) (this.columnasi - 8);
                         lineaH += ((float) (this.filas - 2)) - ncolumnasZoom2;
                     } else {
-                        boolean z4 = lineaDeEnfoqueV2 > ((float) (this.columnasi - 4));
-                        double d48 = (double) ncolumnasZoom2;
-                        Double.isNaN(d48);
-                        if (z4 && (lineaDeEnfoqueH2 > ((float) ((int) (d48 / 2.0d))))) {
+                        if ((lineaDeEnfoqueV2 > ((float) (this.columnasi - 4))) && (lineaDeEnfoqueH2 > ((float) ((int) ( ncolumnasZoom2 / 2.0d))))) {
                             lineaV += (float) (this.columnasi - 8);
-                            double d49 = (double) (ncolumnasZoom2 + 1.0f);
-                            Double.isNaN(d49);
-                            lineaH += lineaDeEnfoqueH2 - ((float) ((int) (d49 / 2.0d)));
+                            lineaH += lineaDeEnfoqueH2 - ((float) ((int) ((ncolumnasZoom2 + 1.0f)/ 2.0d)));
                         } else {
-                            boolean z5 = lineaDeEnfoqueV2 > ((float) (this.columnasi - 4));
-                            double d50 = (double) ncolumnasZoom2;
-                            Double.isNaN(d50);
-                            if (z5 && (lineaDeEnfoqueH2 <= ((float) ((int) (d50 / 2.0d))))) {
+                            if ((lineaDeEnfoqueV2 > ((this.columnasi - 4))) && (lineaDeEnfoqueH2 <= ((float) ((int) (ncolumnasZoom2 / 2.0d))))) {
                                 lineaV += (float) (this.columnasi - 8);
                             } else {
-                                boolean z6 = lineaDeEnfoqueV2 > 4.0f;
-                                double d51 = (double) ncolumnasZoom2;
-                                Double.isNaN(d51);
-                                if (z6 && (lineaDeEnfoqueH2 > ((float) ((this.filas - 1) - ((int) (d51 / 2.0d)))))) {
+                                if ((lineaDeEnfoqueV2 > 4.0f) && (lineaDeEnfoqueH2 > ((float) ((this.filas - 1) - ((int) (ncolumnasZoom2 / 2.0d)))))) {
                                     lineaV += lineaDeEnfoqueV2 - 4.0f;
                                     lineaH += ((float) (this.filas - 2)) - ncolumnasZoom2;
                                 } else {
-                                    boolean z7 = lineaDeEnfoqueV2 > 4.0f;
-                                    double d52 = (double) ncolumnasZoom2;
-                                    Double.isNaN(d52);
-                                    if (z7 && (lineaDeEnfoqueH2 > ((float) ((int) (d52 / 2.0d))))) {
+                                    if ((lineaDeEnfoqueV2 > 4.0f) && (lineaDeEnfoqueH2 > ((float) ((int) (ncolumnasZoom2 / 2.0d))))) {
                                         lineaV += lineaDeEnfoqueV2 - 4.0f;
-                                        double d53 = (double) (ncolumnasZoom2 + 1.0f);
-                                        Double.isNaN(d53);
-                                        lineaH += lineaDeEnfoqueH2 - ((float) ((int) (d53 / 2.0d)));
+                                        lineaH += lineaDeEnfoqueH2 - ((float) ((int) ((ncolumnasZoom2 + 1.0f) / 2.0d)));
                                     } else {
-                                        boolean z8 = lineaDeEnfoqueV2 > 4.0f;
-                                        double d54 = (double) ncolumnasZoom2;
-                                        Double.isNaN(d54);
-                                        if (z8 && (lineaDeEnfoqueH2 <= ((float) ((int) (d54 / 2.0d))))) {
+                                        if (lineaDeEnfoqueV2 > 4.0f && (lineaDeEnfoqueH2 <= ((float) ((int) (ncolumnasZoom2 / 2.0d))))) {
                                             lineaV += lineaDeEnfoqueV2 - 4.0f;
                                         }
                                     }
@@ -1627,63 +1576,15 @@ public class Rejilla extends View {
                     }
                 }
             }
-            StringBuilder sb3 = new StringBuilder();
-            sb3.append(" ");
-            sb3.append(lineaV);
-            sb3.append(" ");
-            sb3.append(lineaH);
-            sb3.append(" ");
-            sb3.append(distanciaV2);
-            sb3.append(" ");
-            sb3.append(distanciaH);
-            sb3.append(" ");
-            sb3.append(ncolumnasZoom2);
-            sb3.append(" ");
-            double d55 = (double) ncolumnasZoom2;
-            Double.isNaN(d55);
-            sb3.append((int) (d55 / 2.0d));
-            Log.i("zooom ", sb3.toString());
-            str2 = str;
         } else if (band) {
-            boolean z9 = this.lineaDeEnfoqueV <= 4.0f;
-            float f2 = this.lineaDeEnfoqueH;
-            str2 = str;
-            double d56 = (double) this.ncolumnasZoom;
-            Double.isNaN(d56);
-            if (z9 && (f2 > ((float) ((this.filas - 1) - ((int) (d56 / 2.0d)))))) {
+            if (this.lineaDeEnfoqueV <= 4.0f && (this.lineaDeEnfoqueH> ((float) ((this.filas - 1) - ((int) (this.ncolumnasZoom / 2.0d)))))) {
                 lineaH += (float) ((this.filas - 2) - this.ncolumnasZoom);
             } else {
-                boolean z10 = this.lineaDeEnfoqueV <= 4.0f;
-                float f3 = this.lineaDeEnfoqueH;
-                double d57 = (double) this.ncolumnasZoom;
-                Double.isNaN(d57);
-                if ((f3 > ((float) ((int) (d57 / 2.0d)))) && z10) {
-                    StringBuilder sb4 = new StringBuilder();
-                    sb4.append(" ");
-                    sb4.append(this.lineaDeEnfoqueH);
-                    sb4.append(" ");
-                    sb4.append(lineaH);
-                    sb4.append(" ");
-                    sb4.append(distanciaV2);
-                    sb4.append(" ");
-                    sb4.append(distanciaH);
-                    sb4.append(" ");
-                    sb4.append(this.ncolumnasZoom);
-                    sb4.append(" ");
-                    double d58 = (double) this.ncolumnasZoom;
-                    Double.isNaN(d58);
-                    sb4.append((int) (d58 / 2.0d));
-                    Log.i("zooom3 ", sb4.toString());
-                    float f4 = this.lineaDeEnfoqueH;
-                    double d59 = (double) (this.ncolumnasZoom + 1);
-                    Double.isNaN(d59);
-                    lineaH += f4 - ((float) ((int) (d59 / 2.0d)));
+                if ((this.lineaDeEnfoqueH > ((float) ((int) (this.ncolumnasZoom / 2.0d)))) && (this.lineaDeEnfoqueV <= 4.0f)) { ;
+                    lineaH += this.lineaDeEnfoqueH - ((float) ((int) ((this.ncolumnasZoom + 1) / 2.0d)));
                 } else {
-                    boolean z11 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
-                    float f5 = this.lineaDeEnfoqueH;
-                    double d60 = (double) this.ncolumnasZoom;
-                    Double.isNaN(d60);
-                    if (z11 && (f5 > ((float) ((this.filas - 1) - ((int) (d60 / 2.0d)))))) {
+
+                    if ((this.lineaDeEnfoqueV > ((float) (this.columnasi - 4))) && (this.lineaDeEnfoqueH > ((float) ((this.filas - 1) - ((int) (this.ncolumnasZoom / 2.0d)))))) {
                         lineaV += (float) (this.columnasi - 8);
                         lineaH += (float) ((this.filas - 2) - this.ncolumnasZoom);
                     } else {
@@ -1788,7 +1689,6 @@ public class Rejilla extends View {
         double d70 = (double) this.ncolumnasZoom;
         Double.isNaN(d70);
         sb7.append((int) (d70 / 2.0d));
-        Log.i(str2, sb7.toString());
         if ((Math.abs(distanciaH) < Math.abs(distanciaV2)) && (lineaV == ((float) this.columnasi))) {
             lineaV -= 1.0f;
         }
