@@ -1423,37 +1423,24 @@ public class Rejilla extends View {
                                 if ((this.height / 2.0d) - (it* zoom) <= ((double) this.f84y0)) {
                                     break;
                                 }
-
                                 if (Math.abs(y - ((this.height / 2.0d) - (it * zoom))) < ((double) Math.abs(distanciaV1))) {
                                     distanciaV1 = y - ((float) ((this.height / 2.0d) - ( it * zoom)));
                                     lineaH4 = (float) it;
                                 }
                                 it++;
-                                dist = dist;
                             }
                             float lineaH6 = ((float) it) - lineaH4;
                             int it1 = 1;
                             float linea = 0.0f;
                             while (true) {
-                                int i5 = this.height;
-                                double d19 = (double) i5;
-                                double d20 = (double) (((float) it1) * zoom);
-                                if ((d19 / 2.0d) + d20 >= ((double) this.f85yf)) {
+                                if ((this.height / 2.0d) + ( it1 * zoom) >= ((double) this.f85yf)) {
                                     break;
                                 }
-                                double d21 = (double) y;
-                                double d22 = (double) i5;
-                                double d23 = (double) (((float) it1) * zoom);
-
-                                if (Math.abs(d21 - ((d22 / 2.0d) + d23)) < ((double) Math.abs(distanciaV1))) {
-                                    double d24 = (double) this.height;
-                                    double d25 = (double) (((float) it1) * zoom);
-                                    distanciaV1 = y - ((float) ((d24 / 2.0d) + d25));
+                                if (Math.abs(y - ((this.height / 2.0d) + (it1 * zoom))) < ((double) Math.abs(distanciaV1))) {
+                                    distanciaV1 = y - ((float) ((this.height / 2.0d) + (it1 * zoom)));
                                     linea = (float) it1;
                                 }
                                 it1++;
-                                it = it;
-                                str3 = str3;
                             }
                             lineaH = lineaH6 + linea;
                             StringBuilder sb = new StringBuilder();
@@ -1467,7 +1454,6 @@ public class Rejilla extends View {
                             } else {
                                 distanciaV2 = distanciaV22;
                             }
-                            distanciaH = distanciaH;
                             str = str3;
                         } else {
                             lineaH2 = lineaH4;
