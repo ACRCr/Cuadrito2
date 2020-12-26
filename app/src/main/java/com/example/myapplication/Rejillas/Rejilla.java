@@ -1414,25 +1414,18 @@ public class Rejilla extends View {
                     } else {
                         double d11 = (double) ncolumnasZoom2;
                         if (lineaDeEnfoqueH2 > ((float) ((int) (d11 / 2.0d)))) {
-                            int i3 = this.height;
-                            float distanciaV1 = (float) i3;
-                            float distanciaV22 = (float) i3;
+
+                            float distanciaV1 = (float)  this.height;
+                            float distanciaV22 = (float)  this.height;
                             int it = 0;
                             while (true) {
-                                int i4 = this.height;
-                                double d12 = (double) i4;
-                                double d13 = (double) (((float) it) * zoom);
-                                if ((d12 / 2.0d) - d13 <= ((double) this.f84y0)) {
+
+                                if ((this.height / 2.0d) - (it* zoom) <= ((double) this.f84y0)) {
                                     break;
                                 }
-                                double d14 = (double) y;
-                                double d15 = (double) i4;
-                                double d16 = (double) (((float) it) * zoom);
 
-                                if (Math.abs(d14 - ((d15 / 2.0d) - d16)) < ((double) Math.abs(distanciaV1))) {
-                                    double d17 = (double) this.height;
-                                    double d18 = (double) (((float) it) * zoom);
-                                    distanciaV1 = y - ((float) ((d17 / 2.0d) - d18));
+                                if (Math.abs(y - ((this.height / 2.0d) - (it * zoom))) < ((double) Math.abs(distanciaV1))) {
+                                    distanciaV1 = y - ((float) ((this.height / 2.0d) - ( it * zoom)));
                                     lineaH4 = (float) it;
                                 }
                                 it++;
