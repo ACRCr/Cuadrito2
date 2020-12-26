@@ -1400,10 +1400,8 @@ public class Rejilla extends View {
                     }
                     str = str3;
                 } else {
-                    int i2 = this.filas - 1;
-
-                    if (lineaDeEnfoqueH2 > ((float) (i2 - ((int) (ncolumnasZoom2 / 2.0d))))) {
-                        float lineaH5 = lineaH4;
+                    if (lineaDeEnfoqueH2 > ((float) (this.filas - 1 - ((int) (ncolumnasZoom2 / 2.0d))))) {
+                        float lineaH5 = 0;
                         for (int j4 = (int) ncolumnasZoom2; j4 >= 1; j4--) {
                             if (Math.abs(y - (this.f85yf - (((float) j4) * zoom))) < distanciaV2) {
                                 lineaH5 = (float) j4;
