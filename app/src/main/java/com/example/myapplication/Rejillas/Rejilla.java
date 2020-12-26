@@ -1473,10 +1473,8 @@ public class Rejilla extends View {
                     }
                     str = str3;
                 } else {
-                    double d27 = (double) this.ncolumnasZoom;
-                    Double.isNaN(d27);
-                    if ( this.lineaDeEnfoqueH > ((float) ((this.filas - 1) - ((int) (d27 / 2.0d))))) {
-                        float lineaH7 = lineaH4;
+                    if ( this.lineaDeEnfoqueH > ((float) ((this.filas - 1) - ((int) (this.ncolumnasZoom / 2.0d))))) {
+                        float lineaH7 = 0;
                         for (int j6 = this.ncolumnasZoom; j6 >= 1; j6--) {
                             if (Math.abs(y - (this.f85yf - (((float) j6) * zoom))) < distanciaV2) {
                                 distanciaV2 = y - (this.f85yf - (((float) j6) * zoom));
@@ -1485,38 +1483,22 @@ public class Rejilla extends View {
                         }
                         lineaH = (((float) this.ncolumnasZoom) - lineaH7) + 1.0f;
                         Log.i("zooom41 ", " " + lineaH);
-                        distanciaH = distanciaH;
                         str = str3;
                     } else {
-                        double d28 = (double) this.ncolumnasZoom;
-                        Double.isNaN(d28);
-                        if ( this.lineaDeEnfoqueH > ((float) ((int) (d28 / 2.0d)))) {
+
+                        if ( this.lineaDeEnfoqueH > ((float) ((int) ( this.ncolumnasZoom / 2.0d)))) {
                             int i7 = this.height;
                             float distanciaV12 = (float) i7;
                             float distanciaV23 = (float) i7;
                             int it2 = 0;
                             float lineaH8 = lineaH4;
                             while (true) {
-                                int i8 = this.height;
-                                double d29 = (double) i8;
-                                Double.isNaN(d29);
-                                double d30 = (double) (((float) it2) * zoom);
-                                Double.isNaN(d30);
-                                if ((d29 / 2.0d) - d30 <= ((double) this.f84y0)) {
+
+                                if ((this.height / 2.0d) - ( it2 * zoom) <= ((double) this.f84y0)) {
                                     break;
-                                }
-                                double d31 = (double) y;
-                                double d32 = (double) i8;
-                                Double.isNaN(d32);
-                                double d33 = (double) (((float) it2) * zoom);
-                                Double.isNaN(d33);
-                                Double.isNaN(d31);
-                                if (Math.abs(d31 - ((d32 / 2.0d) - d33)) < ((double) Math.abs(distanciaV12))) {
-                                    double d34 = (double) this.height;
-                                    Double.isNaN(d34);
-                                    double d35 = (double) (((float) it2) * zoom);
-                                    Double.isNaN(d35);
-                                    distanciaV12 = y - ((float) ((d34 / 2.0d) - d35));
+                                };
+                                if (Math.abs(y - ((this.height / 2.0d) - (it2 * zoom))) < ((double) Math.abs(distanciaV12))) {
+                                    distanciaV12 = y - ((float) ((this.height / 2.0d) - (it2 * zoom)));
                                     lineaH8 = (float) it2;
                                 }
                                 it2++;
@@ -1524,31 +1506,15 @@ public class Rejilla extends View {
                             float lineaH9 = ((float) it2) - lineaH8;
                             int it12 = 1;
                             float linea2 = 0.0f;
-                            while (true) {
-                                int i9 = this.height;
-                                double d36 = (double) i9;
-                                Double.isNaN(d36);
-                                double d37 = (double) (((float) it12) * zoom);
-                                Double.isNaN(d37);
-                                if ((d36 / 2.0d) + d37 >= ((double) this.f85yf)) {
+                            while (true) {;
+                            if ((this.height/ 2.0d) + (it12 * zoom) >= ((double) this.f85yf)) {
                                     break;
                                 }
-                                double d38 = (double) y;
-                                double d39 = (double) i9;
-                                Double.isNaN(d39);
-                                double d40 = (double) (((float) it12) * zoom);
-                                Double.isNaN(d40);
-                                Double.isNaN(d38);
-                                if (Math.abs(d38 - ((d39 / 2.0d) + d40)) < ((double) Math.abs(distanciaV12))) {
-                                    double d41 = (double) this.height;
-                                    Double.isNaN(d41);
-                                    double d42 = (double) (((float) it12) * zoom);
-                                    Double.isNaN(d42);
-                                    distanciaV12 = y - ((float) ((d41 / 2.0d) + d42));
+                                if (Math.abs(y - ((this.height / 2.0d) + (it12 * zoom))) < ((double) Math.abs(distanciaV12))) {
+                                    distanciaV12 = y - ((float) ((this.height/ 2.0d) +  (it12 * zoom)));
                                     linea2 = (float) it12;
                                 }
                                 it12++;
-                                it2 = it2;
                             }
                             int it13 = it12 - 1;
                             float lineaH10 = lineaH9 + linea2;
