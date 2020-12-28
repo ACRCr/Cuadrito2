@@ -259,25 +259,9 @@ public class Rejilla extends View {
         if (this.dis == this.disi) {
             this.desdeDondeH = 0.0f;
             for (int j3 = 1; j3 <= this.f79h - 1; j3++) {
-                float f17 = this.f82x0;
-                double d18 = (double) f17;
-                double d19 = this.dig;
-                Double.isNaN(d18);
-                float f18 = this.dis;
-                double d20 = (double) (((float) j3) * f18);
-                Double.isNaN(d20);
-                double d21 = d18 + (d19 * 0.005d) + d20;
-                double d22 = (double) (((float) this.height) - f17);
-                Double.isNaN(d22);
-                if (d21 < d22 - (d19 * 0.005d)) {
-                    double d23 = (double) f17;
-                    Double.isNaN(d23);
-                    float f19 = this.f84y0;
-                    double d24 = (double) this.f83xf;
-                    Double.isNaN(d24);
-                    canvas.drawLine((float) (d23 + (d19 * 0.005d)), f19 + (((float) j3) * f18), (float) (d24 - (d19 * 0.005d)), f19 + (((float) j3) * f18), this.otroPincel);
+                if (this.f82x0 + (this.dig * 0.005d) +  (j3 *  this.dis) < ((this.height) - this.f82x0) - (this.dig * 0.005d)) {
+                    canvas.drawLine((float) ( this.f82x0 + (this.dig * 0.005d)),  this.f84y0 + (((float) j3) *  this.dis), (float) (this.f83xf - (this.dig * 0.005d)),  this.f84y0 + (((float) j3) *  this.dis), this.otroPincel);
                 }
-
             }
         } else {
             float f20 = this.lineaDeEnfoqueH;
