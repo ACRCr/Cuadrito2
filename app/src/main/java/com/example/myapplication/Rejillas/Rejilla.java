@@ -466,89 +466,40 @@ public class Rejilla extends View {
                                     }
                                 }
                             } else if ((this.f81p.get(i)[6] == 2) || (this.f81p.get(i)[8] == 4)) {
-                                boolean z29 = this.lineaDeEnfoqueV <= 4.0f;
-                                float f49 = this.lineaDeEnfoqueH;
-                                double d60 = (double) this.ncolumnasZoom;
-                                Double.isNaN(d60);
-                                if (z29 && (f49 >= ((float) ((this.filas - 1) - ((int) (d60 / 2.0d)))))) {
-                                    int[] iArr19 = this.f81p.get(i);
-                                    iArr19[2] = iArr19[2] - ((this.filas - 2) - this.ncolumnasZoom);
+
+                                if (this.lineaDeEnfoqueV <= 4.0f && (this.lineaDeEnfoqueH >= ((float) ((this.filas - 1) - ((int) ( this.ncolumnasZoom / 2.0d)))))) {
+                                    this.f81p.get(i)[2] = this.f81p.get(i)[2] - ((this.filas - 2) - this.ncolumnasZoom);
                                 } else {
-                                    boolean z30 = this.lineaDeEnfoqueV <= 4.0f;
-                                    float f50 = this.lineaDeEnfoqueH;
-                                    double d61 = (double) this.ncolumnasZoom;
-                                    Double.isNaN(d61);
-                                    if (z30 && (f50 > ((float) ((int) (d61 / 2.0d))))) {
-                                        int[] iArr20 = this.f81p.get(i);
-                                        iArr20[2] = (int) (((float) iArr20[2]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
+                                    if (this.lineaDeEnfoqueV <= 4.0f && (this.lineaDeEnfoqueH > ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
+                                        this.f81p.get(i)[2] = (int) (((float)  this.f81p.get(i)[2]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
                                     } else {
-                                        boolean z31 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
-                                        float f51 = this.lineaDeEnfoqueH;
-                                        double d62 = (double) this.ncolumnasZoom;
-                                        Double.isNaN(d62);
-                                        if (z31 && (f51 >= ((float) ((this.filas - 1) - ((int) (d62 / 2.0d)))))) {
-                                            int[] iArr21 = this.f81p.get(i);
-                                            iArr21[4] = iArr21[4] - (this.columnasi - 8);
-                                            int[] iArr22 = this.f81p.get(i);
-                                            iArr22[3] = iArr22[3] - (this.columnasi - 8);
-                                            int[] iArr23 = this.f81p.get(i);
-                                            iArr23[2] = iArr23[2] - ((this.filas - 2) - this.ncolumnasZoom);
+                                        if (this.lineaDeEnfoqueV > ((float) (this.columnasi - 4)) && (this.lineaDeEnfoqueH >= ((float) ((this.filas - 1) - ((int) ( this.ncolumnasZoom / 2.0d)))))) {
+                                            this.f81p.get(i)[4] = this.f81p.get(i)[4] - (this.columnasi - 8);
+                                            this.f81p.get(i)[3] = this.f81p.get(i)[3] - (this.columnasi - 8);
+                                            this.f81p.get(i)[2] = this.f81p.get(i)[2] - ((this.filas - 2) - this.ncolumnasZoom);
                                         } else {
-                                            boolean z32 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
-                                            float f52 = this.lineaDeEnfoqueH;
-                                            double d63 = (double) this.ncolumnasZoom;
-                                            Double.isNaN(d63);
-                                            if (z32 && (f52 > ((float) ((int) (d63 / 2.0d))))) {
-                                                int[] iArr24 = this.f81p.get(i);
-                                                iArr24[4] = iArr24[4] - (this.columnasi - 8);
-                                                int[] iArr25 = this.f81p.get(i);
-                                                iArr25[3] = iArr25[3] - (this.columnasi - 8);
-                                                int[] iArr26 = this.f81p.get(i);
-                                                iArr26[2] = (int) (((float) iArr26[2]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
+                                            if (this.lineaDeEnfoqueV > ((float) (this.columnasi - 4)) && (this.lineaDeEnfoqueH > ((float) ((int) ( this.ncolumnasZoom / 2.0d))))) {
+                                                this.f81p.get(i)[4] = this.f81p.get(i)[4] - (this.columnasi - 8);
+                                                this.f81p.get(i)[3] =  this.f81p.get(i)[3] - (this.columnasi - 8);
+                                                this.f81p.get(i)[2] = (int) (((float)  this.f81p.get(i)[2]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
                                             } else {
-                                                boolean z33 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
-                                                float f53 = this.lineaDeEnfoqueH;
-                                                double d64 = (double) this.ncolumnasZoom;
-                                                Double.isNaN(d64);
-                                                if (z33 && (f53 <= ((float) ((int) (d64 / 2.0d))))) {
-                                                    int[] iArr27 = this.f81p.get(i);
-                                                    iArr27[3] = iArr27[3] - (this.columnasi - 8);
-                                                    int[] iArr28 = this.f81p.get(i);
-                                                    iArr28[4] = iArr28[4] - (this.columnasi - 8);
+                                                if (this.lineaDeEnfoqueV > ((float) (this.columnasi - 4)) && (this.lineaDeEnfoqueH <= ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
+                                                    this.f81p.get(i)[3] = this.f81p.get(i)[3] - (this.columnasi - 8);
+                                                    this.f81p.get(i)[4] = this.f81p.get(i)[4] - (this.columnasi - 8);
                                                 } else {
-                                                    boolean z34 = this.lineaDeEnfoqueV > 4.0f;
-                                                    float f54 = this.lineaDeEnfoqueH;
-                                                    double d65 = (double) this.ncolumnasZoom;
-                                                    Double.isNaN(d65);
-                                                    if (z34 && (f54 >= ((float) ((this.filas - 1) - ((int) (d65 / 2.0d)))))) {
-                                                        int[] iArr29 = this.f81p.get(i);
-                                                        iArr29[3] = (int) (((float) iArr29[3]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                        int[] iArr30 = this.f81p.get(i);
-                                                        iArr30[4] = (int) (((float) iArr30[4]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                        int[] iArr31 = this.f81p.get(i);
-                                                        iArr31[2] = iArr31[2] - ((this.filas - 2) - this.ncolumnasZoom);
+                                                    if (this.lineaDeEnfoqueV > 4.0f && ( this.lineaDeEnfoqueH >= ((float) ((this.filas - 1) - ((int) (this.ncolumnasZoom / 2.0d)))))) {
+                                                        this.f81p.get(i)[3] = (int) (((float) this.f81p.get(i)[3]) - (this.lineaDeEnfoqueV - 4.0f));
+                                                        this.f81p.get(i)[4] = (int) (((float) this.f81p.get(i)[4]) - (this.lineaDeEnfoqueV - 4.0f));
+                                                        this.f81p.get(i)[2] = this.f81p.get(i)[2] - ((this.filas - 2) - this.ncolumnasZoom);
                                                     } else {
-                                                        boolean z35 = this.lineaDeEnfoqueV > 4.0f;
-                                                        float f55 = this.lineaDeEnfoqueH;
-                                                        double d66 = (double) this.ncolumnasZoom;
-                                                        Double.isNaN(d66);
-                                                        if (z35 && (f55 > ((float) ((int) (d66 / 2.0d))))) {
-                                                            int[] iArr32 = this.f81p.get(i);
-                                                            iArr32[4] = (int) (((float) iArr32[4]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                            int[] iArr33 = this.f81p.get(i);
-                                                            iArr33[3] = (int) (((float) iArr33[3]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                            int[] iArr34 = this.f81p.get(i);
-                                                            iArr34[2] = (int) (((float) iArr34[2]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
+                                                        if (this.lineaDeEnfoqueV > 4.0f && (this.lineaDeEnfoqueH > ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
+                                                            this.f81p.get(i)[4] = (int) (((float) this.f81p.get(i)[4]) - (this.lineaDeEnfoqueV - 4.0f));
+                                                            this.f81p.get(i)[3] = (int) (((float) this.f81p.get(i)[3]) - (this.lineaDeEnfoqueV - 4.0f));
+                                                            this.f81p.get(i)[2] = (int) (((float) this.f81p.get(i)[2]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
                                                         } else {
-                                                            boolean z36 = this.lineaDeEnfoqueV > 4.0f;
-                                                            float f56 = this.lineaDeEnfoqueH;
-                                                            double d67 = (double) this.ncolumnasZoom;
-                                                            Double.isNaN(d67);
-                                                            if (z36 && (f56 <= ((float) ((int) (d67 / 2.0d))))) {
-                                                                int[] iArr35 = this.f81p.get(i);
-                                                                iArr35[4] = (int) (((float) iArr35[4]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                                int[] iArr36 = this.f81p.get(i);
-                                                                iArr36[3] = (int) (((float) iArr36[3]) - (this.lineaDeEnfoqueV - 4.0f));
+                                                            if (this.lineaDeEnfoqueV > 4.0f && (this.lineaDeEnfoqueH <= ((float) ((int) ( this.ncolumnasZoom / 2.0d))))) {
+                                                                this.f81p.get(i)[4] = (int) (((float) this.f81p.get(i)[4]) - (this.lineaDeEnfoqueV - 4.0f));
+                                                                this.f81p.get(i)[3] = (int) (((float) this.f81p.get(i)[3]) - (this.lineaDeEnfoqueV - 4.0f));
                                                             }
                                                         }
                                                     }
