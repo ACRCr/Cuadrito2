@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,11 +19,13 @@ import com.example.myapplication.Rejillas.Rejilla;
 import com.example.myapplication.IA.IA;
 import java.lang.reflect.Array;
 import java.util.LinkedList;
+import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Juego extends AppCompatActivity {
     private Arbitro arbitro;
+    private int[] coloresAsignados = {0,0,0,0,0,0,0};
     private boolean band2;
     private int columnas;
     private Thread cuentaRegresiva;
@@ -92,20 +95,7 @@ public class Juego extends AppCompatActivity {
         this.rejillaCompleta = new DrawRejillaCompleta(this, this.columnas, this);
         this.arbitro = new Arbitro();
         this.dondeToque = (float[][]) Array.newInstance(float.class, 2, 2);
-        Jugador[] jugadorArr = new Jugador[(this.jugadores + 1)];
-        this.jugador = jugadorArr;
-        jugadorArr[1] = new Jugador(1, SupportMenu.CATEGORY_MASK, this);
-        this.jugador[0] = new IA("normal", this, this.arbitro);
-        if (this.jugadores > 1) {
-            this.jugador[2] = new Jugador(2, -16711936, this);
-        }
-        this.rejilla.setAjugadores(this.jugador);
-        this.drawToquesYCuadritos.setAjugadores(this.jugador);
-        this.jugador[0].setRejilla(this.rejilla);
-        this.jugador[1].setRejilla(this.rejilla);
-        if (this.jugadores > 1) {
-            this.jugador[2].setRejilla(this.rejilla);
-        }
+        setJugadores();
         this.rejilla.setBackgroundColor(-1);
         this.arbitro.setRejilla(this.rejilla);
         View v = this.rejilla;
@@ -278,10 +268,12 @@ public class Juego extends AppCompatActivity {
         float[] array;
         int i = this.quienJuega;
         int i2 = this.jugadores;
-        if (i % i2 == 1 || i / i2 == i) {
+        if ((i % i2 == 1 || i / i2 == i) & jugadores<=1) {
             id = this.jugador[1].getId();
         } else {
-            id = this.jugador[2].getId();
+            int n = (quienJuega % (this.jugadores+1));
+            if(n==0) quienJuega++;
+            id = this.jugador[(quienJuega % (this.jugadores+1))].getId();
         }
 
         float[] fArr = {0.0f, 0.0f, 0.0f, 0.0f};
@@ -405,5 +397,55 @@ public class Juego extends AppCompatActivity {
         for (int i = 1; i < this.positions.getLast().length; i++) {
             this.posicionesOrganizadas.get(this.posicion)[i] = this.positions.getLast()[i];
         }
+    }
+    private void setJugadores(){
+        Jugador[] jugadorArr = new Jugador[(this.jugadores + 1)];
+        this.jugador = jugadorArr;
+        jugadorArr[1] = new Jugador(1,obtenerColor(), this);
+        this.jugador[0] = new IA("normal", this, this.arbitro);
+
+        if (this.jugadores > 1) {
+            for(int i = 2; i<=(jugadores); i++)
+            this.jugador[i] = new Jugador(i, obtenerColor(), this);
+        }
+        this.rejilla.setAjugadores(this.jugador);
+        this.drawToquesYCuadritos.setAjugadores(this.jugador);
+        this.jugador[0].setRejilla(this.rejilla);
+        this.jugador[1].setRejilla(this.rejilla);
+        if (this.jugadores > 1) {
+            for(int i = 2; i<=(jugadores); i++)
+            this.jugador[i].setRejilla(this.rejilla);
+        }
+    }
+    private int obtenerColor(){
+        boolean band = true;
+        int color =0;
+        Random random = new Random();
+        while (band){
+            int number = random.nextInt(7);
+            switch (number){
+                case 0: color = Color.BLUE; break;
+                case 1: color = Color.CYAN; break;
+                case 2: color = Color.GREEN; break;
+                case 3: color = Color.YELLOW; break;
+                case 4: color = Color.MAGENTA; break;
+                case 5: color = Color.RED; break;
+                case 6: color = Color.rgb(128,57,30);
+            }
+            band = false;
+            for(int i=0; i<coloresAsignados.length; i++ ){
+                if(coloresAsignados[i] == color) {
+                    band = true;
+                }
+            }
+        }
+        for(int i = 0; i<coloresAsignados.length; i++){
+            if(coloresAsignados[i] == 0){
+                coloresAsignados[i] = color;
+                break;
+            }
+        }
+
+        return color;
     }
 }
