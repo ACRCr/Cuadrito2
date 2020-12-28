@@ -276,29 +276,20 @@ public class Rejilla extends View {
                 }
                 this.ncolumnasZoom = j4 - 1;
             } else {
-                double d29 = (double)  this.ncolumnasZoom;
-                Double.isNaN(d29);
-                if (this.lineaDeEnfoqueH >= ((float) ((this.filas - 1) - ((int) (d29 / 2.0d))))) {
+                if (this.lineaDeEnfoqueH >= ((float) ((this.filas - 1) - ((int) ( this.ncolumnasZoom / 2.0d))))) {
                     int j5 = 1;
                     while (true) {
                         if (this.f85yf - (((float) j5) * this.dis) <=  this.f84y0) {
                             break;
                         }
-                        double d30 = (double) this.f82x0;
-                        double d31 = this.dig;
-                        Double.isNaN(d30);
-                        double d32 = (double) this.f83xf;
-                        Double.isNaN(d32);
-                        canvas.drawLine((float) (d30 + (d31 * 0.005d)), this.f85yf - (((float) j5) * this.dis), (float) (d32 - (d31 * 0.005d)), this.f85yf - (((float) j5) * this.dis), this.otroPincel);
+                        canvas.drawLine((float) (this.f82x0 + (this.dig * 0.005d)), this.f85yf - (((float) j5) * this.dis), (float) (this.f83xf - (this.dig * 0.005d)), this.f85yf - (((float) j5) * this.dis), this.otroPincel);
                         j5++;
                     }
                     int j6 = j5 - 1;
                     this.desdeDondeH = (this.f85yf - (((float) (j6 + 1)) * this.dis)) -  this.f84y0;
                     this.ncolumnasZoom = j6;
                 } else {
-                    double d33 = (double)  this.ncolumnasZoom;
-                    Double.isNaN(d33);
-                    if (this.lineaDeEnfoqueH > ((float) ((int) (d33 / 2.0d)))) {
+                    if (this.lineaDeEnfoqueH > ((float) ((int) (this.ncolumnasZoom / 2.0d)))) {
                         centrado(canvas);
                     }
                 }
