@@ -258,8 +258,7 @@ public class Rejilla extends View {
         }
         if (this.dis == this.disi) {
             this.desdeDondeH = 0.0f;
-            int j3 = 1;
-            for (int i = 1; j3 <= this.f79h - i; i = 1) {
+            for (int j3 = 1; j3 <= this.f79h - 1; j3++) {
                 float f17 = this.f82x0;
                 double d18 = (double) f17;
                 double d19 = this.dig;
@@ -278,7 +277,7 @@ public class Rejilla extends View {
                     Double.isNaN(d24);
                     canvas.drawLine((float) (d23 + (d19 * 0.005d)), f19 + (((float) j3) * f18), (float) (d24 - (d19 * 0.005d)), f19 + (((float) j3) * f18), this.otroPincel);
                 }
-                j3++;
+
             }
         } else {
             float f20 = this.lineaDeEnfoqueH;
