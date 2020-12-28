@@ -26,30 +26,30 @@ public class Rejilla extends View {
     static final /* synthetic */ boolean $assertionsDisabled = false;
     private Jugador[] aJugadores;
     private int backgroundColor;
-    private int columnas;
-    private int columnasi;
+    private final int columnas;
+    private final int columnasi;
     private float desdeDonde;
     private float desdeDondeH;
     private double dig;
     private float dis;
-    private float disi;
-    private int filas;
+    private final float disi;
+    private final int filas;
     private float fromX;
     private float fromY;
 
     /* renamed from: h */
     private int f79h;
-    private int height;
+    private final int height;
     private float lineaDeEnfoqueH;
     private float lineaDeEnfoqueV;
     private int lineasHorizonatales;
-    private int lineasPorFila;
+    private final int lineasPorFila;
     private int lineasVerticales;
-    private int nLineas;
+    private final int nLineas;
     private int ncolumnasZoom;
 
     private Object o;
-    private Paint otroPincel;
+    private final Paint otroPincel;
 
     /* renamed from: p */
     private LinkedList<int[]> f81p;
@@ -57,9 +57,9 @@ public class Rejilla extends View {
     private float paintXf;
     private float paintY0;
     private float paintYf;
-    private Paint pincelRojo;
-    private Paint pintaCajas;
-    private Paint pintaRejilla;
+    private final Paint pincelRojo;
+    private final Paint pintaCajas;
+    private final Paint pintaRejilla;
     private LinkedList<int[]> posicionesOrganizadas;
     private LinkedList<float[]> toquesOrganizadosCompartidos = new LinkedList<>();
     private int width;
@@ -104,7 +104,7 @@ public class Rejilla extends View {
         dp.getRealMetrics(dm2);
         this.height = dm2.heightPixels;
         this.width = dm2.widthPixels;
-        this.dig = Math.sqrt(Math.pow((double) this.height, 2.0d) + Math.pow((double) this.width, 2.0d));
+        this.dig = Math.sqrt(Math.pow( this.height, 2.0d) + Math.pow( this.width, 2.0d));
         Paint paint = new Paint();
         this.pintaRejilla = paint;
         paint.setColor(ViewCompat.MEASURED_STATE_MASK);
@@ -130,28 +130,21 @@ public class Rejilla extends View {
         this.f82x0 = f5;
         float f6 = ((float) this.width) - f5;
         this.f83xf = f6;
-        double d4 = (double) (f6 - f5);
-        Double.isNaN(d4);
+        double d4 = (f6 - f5);
         double d5 = d4 - (d3 * 0.01d);
-        double d6 = (double) this.columnas;
-        Double.isNaN(d6);
-        float f7 = (float) (d5 / d6);
+        float f7 = (float) (d5 / (double) this.columnas);
         this.disi = f7;
         this.dis = f7;
         this.f79h = 0;
         while (true) {
             float f8 = this.f82x0;
-            double d7 = (double) f8;
             double d8 = this.dig;
-            Double.isNaN(d7);
             i = this.f79h;
             f = this.dis;
-            double d9 = (double) (((float) i) * f);
-            Double.isNaN(d9);
-            double d10 = d7 + (d8 * d2) + d9;
+            double d9 = (((float) i) * f);
+            double d10 = (double) f8 + (d8 * d2) + d9;
             i2 = this.height;
-            double d11 = (double) (((float) i2) - f8);
-            Double.isNaN(d11);
+            double d11 =  (((float) i2) - f8);
             if (d10 >= d11 - (d8 * 0.005d)) {
                 break;
             }
@@ -163,55 +156,42 @@ public class Rejilla extends View {
         this.nLineas = (((i4 * 2) - 1) * (i - 2)) + (i4 - 1);
         int i5 = i - 1;
         this.f79h = i5;
-        double d12 = (double) (((float) i2) - (((float) i5) * f));
-        Double.isNaN(d12);
+        double d12 = (((float) i2) - (((float) i5) * f));
         float f9 = (float) (d12 / 2.0d);
         this.f84y0 = f9;
         this.f85yf = ((float) i2) - f9;
         int it = 1;
         while (true) {
             i3 = this.height;
-            double d13 = (double) i3;
-            Double.isNaN(d13);
-            double d14 = (double) it;
+            double d13 = i3;
+            double d14 = it;
             f2 = this.f83xf;
             f3 = this.f82x0;
-            double d15 = (double) (f2 - f3);
+            double d15 = (f2 - f3);
             d = this.dig;
-            Double.isNaN(d15);
-            Double.isNaN(d14);
             double d16 = (d13 / 2.0d) - (d14 * ((d15 - (d * 0.01d)) / 8.0d));
             f4 = this.f84y0;
             if (d16 <= ((double) f4)) {
                 break;
             }
             it++;
-            manager = manager;
         }
         int it2 = it - 1;
-        double d17 = (double) i3;
-        Double.isNaN(d17);
-        double d18 = (double) (f2 - f3);
-        Double.isNaN(d18);
-        double d19 = (double) (((float) it2) * ((float) ((d18 - (d * 0.01d)) / 8.0d)));
-        Double.isNaN(d19);
+        double d17 =  i3;
+        double d18 = (f2 - f3);
+        double d19 =  (((float) it2) * ((float) ((d18 - (d * 0.01d)) / 8.0d)));
         double d20 = (d17 / 2.0d) - d19;
-        double d21 = (double) f4;
-        Double.isNaN(d21);
+        double d21 =  f4;
         this.desdeDondeH = (float) (d20 - d21);
         this.ncolumnasZoom = it2;
         int it3 = 1;
         while (true) {
-            double d22 = (double) this.height;
-            Double.isNaN(d22);
             float f10 = this.f83xf;
             float f11 = this.f82x0;
-            double d23 = (double) (f10 - f11);
-            Double.isNaN(d23);
-            double d24 = (double) (((float) it3) * ((float) ((d23 - (this.dig * 0.01d)) / 8.0d)));
-            Double.isNaN(d24);
+            double d23 = (f10 - f11);
+            double d24 =  (((float) it3) * ((float) ((d23 - (this.dig * 0.01d)) / 8.0d)));
             float f12 = this.f85yf;
-            if ((d22 / 2.0d) + d24 < ((double) f12)) {
+            if (((double) this.height / 2.0d) + d24 < ((double) f12)) {
                 it3++;
             } else {
                 this.ncolumnasZoom += it3;
@@ -297,13 +277,9 @@ public class Rejilla extends View {
         }
         if (this.o instanceof Juego) {
             Jugador[] jugadorArr2 = this.aJugadores;
-            int length = jugadorArr2.length;
             int i6 = 0;
             while (true) {
-                char c = 3;
-                char c2 = 4;
-                char c3 = 2;
-                if (i6 >= length) {
+                if (i6 >=  jugadorArr2.length) {
                     break;
                 }
                 Jugador jugador = jugadorArr2[i6];
@@ -318,74 +294,35 @@ public class Rejilla extends View {
                             int lineaH2 = (int) array[1];
                             float distanciaV = array[2];
                             float distanciaH = array[3];
-                            boolean z = this.dis == this.disi;
-                            boolean z2 = this.lineaDeEnfoqueV <= 4.0f;
-                            float f23 = this.lineaDeEnfoqueH;
-                            double d34 = (double) this.ncolumnasZoom;
-                            Double.isNaN(d34);
-                            if (z || (z2 && (f23 <= ((float) ((int) (d34 / 2.0d)))))) {
+                            if (this.dis == this.disi || (this.lineaDeEnfoqueV <= 4.0f && (this.lineaDeEnfoqueH <= ((float) ((int) (this.ncolumnasZoom / 2.0d)))))) {
                                 jugadorArr = jugadorArr2;
                                 metodo(null, null, this, canvas, distanciaH, distanciaV, lineaV2, lineaH2, jugador.getId(), false);
-                                lineaH = lineaH2;
-                                lineaV = lineaV2;
                             } else {
                                 jugadorArr = jugadorArr2;
-                                boolean z3 = this.lineaDeEnfoqueV <= 4.0f;
-                                float f24 = this.lineaDeEnfoqueH;
-                                double d35 = (double) this.ncolumnasZoom;
-                                Double.isNaN(d35);
-                                if (z3 && (f24 >= ((float) ((this.filas - 1) - ((int) (d35 / 2.0d)))))) {
+                                if (this.lineaDeEnfoqueV <= 4.0f && (this.lineaDeEnfoqueH >= ((float) ((this.filas - 1) - ((int) (this.ncolumnasZoom / 2.0d)))))) {
                                     metodo(null, null, this, canvas, distanciaH, distanciaV, lineaV2, lineaH2 - ((this.filas - 2) - this.ncolumnasZoom), jugador.getId(), false);
                                 } else {
-                                    boolean z4 = this.lineaDeEnfoqueV <= 4.0f;
-                                    float f25 = this.lineaDeEnfoqueH;
-                                    double d36 = (double) this.ncolumnasZoom;
-                                    Double.isNaN(d36);
-                                    if (z4 && (f25 > ((float) ((int) (d36 / 2.0d))))) {
+                                    if (this.lineaDeEnfoqueV <= 4.0f && (this.lineaDeEnfoqueH > ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
                                         metodo(null, null, this, canvas, distanciaH, distanciaV, lineaV2, (int) (((float) lineaH2) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2)))), jugador.getId(), false);
                                     } else {
-                                        boolean z5 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
-                                        float f26 = this.lineaDeEnfoqueH;
-                                        double d37 = (double) this.ncolumnasZoom;
-                                        Double.isNaN(d37);
-                                        if (z5 && (f26 >= ((float) ((this.filas - 1) - ((int) (d37 / 2.0d)))))) {
+                                        if (this.lineaDeEnfoqueV > ((float) (this.columnasi - 4)) && (this.lineaDeEnfoqueH >= ((float) ((this.filas - 1) - ((int) (this.ncolumnasZoom / 2.0d)))))) {
                                             metodo(null, null, this, canvas, distanciaH, distanciaV, lineaV2 - (this.columnasi - 8), lineaH2 - ((this.filas - 2) - this.ncolumnasZoom), jugador.getId(), false);
                                         } else {
                                             lineaV = lineaV2;
-                                            boolean z6 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
-                                            float f27 = this.lineaDeEnfoqueH;
-                                            double d38 = (double) this.ncolumnasZoom;
-                                            Double.isNaN(d38);
-                                            if (z6 && (f27 > ((float) ((int) (d38 / 2.0d))))) {
+                                            if (this.lineaDeEnfoqueV > ((float) (this.columnasi - 4)) && (this.lineaDeEnfoqueH > ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
                                                 metodo(null, null, this, canvas, distanciaH, distanciaV, lineaV - (this.columnasi - 8), (int) (((float) lineaH2) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2)))), jugador.getId(), false);
                                             } else {
-                                                boolean z7 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
-                                                float f28 = this.lineaDeEnfoqueH;
-                                                double d39 = (double) this.ncolumnasZoom;
-                                                Double.isNaN(d39);
-                                                if (z7 && (f28 <= ((float) ((int) (d39 / 2.0d))))) {
+                                                if (this.lineaDeEnfoqueV > ((float) (this.columnasi - 4)) && ( this.lineaDeEnfoqueH <= ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
                                                     metodo(null, null, this, canvas, distanciaH, distanciaV, lineaV - (this.columnasi - 8), lineaH2, jugador.getId(), false);
                                                 } else {
                                                     lineaH = lineaH2;
-                                                    boolean z8 = this.lineaDeEnfoqueV > 4.0f;
-                                                    float f29 = this.lineaDeEnfoqueH;
-                                                    double d40 = (double) this.ncolumnasZoom;
-                                                    Double.isNaN(d40);
-                                                    if (z8 && (f29 >= ((float) ((this.filas - 1) - ((int) (d40 / 2.0d)))))) {
+                                                    if (this.lineaDeEnfoqueV > 4.0f && ( this.lineaDeEnfoqueH >= ((float) ((this.filas - 1) - ((int) ( this.ncolumnasZoom / 2.0d)))))) {
                                                         metodo(null, null, this, canvas, distanciaH, distanciaV, (int) (((float) lineaV) - (this.lineaDeEnfoqueV - 4.0f)), lineaH - ((this.filas - 2) - this.ncolumnasZoom), jugador.getId(), false);
                                                     } else {
-                                                        boolean z9 = this.lineaDeEnfoqueV > 4.0f;
-                                                        float f30 = this.lineaDeEnfoqueH;
-                                                        double d41 = (double) this.ncolumnasZoom;
-                                                        Double.isNaN(d41);
-                                                        if (z9 && (f30 > ((float) ((int) (d41 / 2.0d))))) {
+                                                        if (this.lineaDeEnfoqueV > 4.0f && (this.lineaDeEnfoqueH > ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
                                                             metodo(null, null, this, canvas, distanciaH, distanciaV, (int) (((float) lineaV) - (this.lineaDeEnfoqueV - 4.0f)), (int) (((float) lineaH) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2)))), jugador.getId(), false);
                                                         } else {
-                                                            boolean z10 = this.lineaDeEnfoqueV > 4.0f;
-                                                            float f31 = this.lineaDeEnfoqueH;
-                                                            double d42 = (double) this.ncolumnasZoom;
-                                                            Double.isNaN(d42);
-                                                            if (z10 && (f31 <= ((float) ((int) (d42 / 2.0d))))) {
+                                                            if (this.lineaDeEnfoqueV > 4.0f && (this.lineaDeEnfoqueH <= ((float) ((int) ( this.ncolumnasZoom / 2.0d))))) {
                                                                 metodo(null, null, this, canvas, distanciaH, distanciaV, (int) (((float) lineaV) - (this.lineaDeEnfoqueV - 4.0f)), lineaH, jugador.getId(), false);
                                                             }
                                                         }
@@ -419,16 +356,15 @@ public class Rejilla extends View {
                                 this.pincelRojo.setColor(this.aJugadores[(int) this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[0]].getColor());
                                 j = j7;
                                 i3 = i8;
-                                float[] array2 = obtenerLineas(this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[1], this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[c3], this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[c], this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[c2], this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[5], this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[6], false);
+                                float[] array2 = obtenerLineas(this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[1], this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[2], this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[3], this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[4], this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[5], this.toquesOrganizadosCompartidos.get(((this.lineasPorFila * (i8 - 1)) + j7) - 1)[6], false);
                                 int lineaV3 = (int) array2[0];
                                 int lineaH3 = (int) array2[1];
                                 float distanciaV2 = array2[2];
-                                float distanciaH2 = array2[c];
+                                float distanciaH2 = array2[3];
                                 boolean z11 = this.dis == this.disi;
                                 boolean z12 = this.lineaDeEnfoqueV <= 4.0f;
                                 float f32 = this.lineaDeEnfoqueH;
-                                double d43 = (double) this.ncolumnasZoom;
-                                Double.isNaN(d43);
+                                double d43 = this.ncolumnasZoom;
                                 if (z11 || (z12 && (f32 <= ((float) ((int) (d43 / 2.0d)))))) {
                                     i4 = i6;
                                      metodo(null, null, this, canvas, distanciaH2, distanciaV2, lineaV3, lineaH3, jugador.getId(), false);
@@ -507,14 +443,8 @@ public class Rejilla extends View {
                             i6 = i4;
                             i8 = i3;
                             i9 = 1;
-                            c3 = 2;
-                            c2 = 4;
-                            c = 3;
                         }
                         i8++;
-                        c3 = 2;
-                        c2 = 4;
-                        c = 3;
                     }
                     i2 = i6;
                 } else {
