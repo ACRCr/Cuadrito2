@@ -1260,56 +1260,17 @@ public class Rejilla extends View {
 
     /* access modifiers changed from: protected */
     public void centrado(Canvas canvas) {
-        int i;
-        float f;
-        float f2;
-        double d = (double) this.f82x0;
-        double d2 = this.dig;
-        Double.isNaN(d);
-        float f3 = (float) (d + (d2 * 0.005d));
-        int i2 = this.height;
-        double d3 = (double) i2;
-        double d4 = 2.0d;
-        Double.isNaN(d3);
-        double d5 = (double) this.f83xf;
-        Double.isNaN(d5);
-        double d6 = (double) i2;
-        Double.isNaN(d6);
-        canvas.drawLine(f3, (float) (d3 / 2.0d), (float) (d5 - (d2 * 0.005d)), (float) (d6 / 2.0d), this.otroPincel);
+        canvas.drawLine( (float) (this.f82x0 + (this.dig * 0.005d)), (float) (this.height / 2.0d), (float) (this.f83xf - (this.dig * 0.005d)), (float) (this.height / 2.0d), this.otroPincel);
         int it = 1;
         while (true) {
-            i = this.height;
-            double d7 = (double) i;
-            Double.isNaN(d7);
-            f = this.dis;
-            double d8 = (double) (((float) it) * f);
-            Double.isNaN(d8);
-            f2 = this.f84y0;
-            if ((d7 / d4) - d8 <= ((double) f2)) {
+            if ((this.height / 2.0d) - (it *  this.dis) <= ((double) this.f84y0)) {
                 break;
             }
-            double d9 = (double) this.f82x0;
-            double d10 = this.dig;
-            Double.isNaN(d9);
-            double d11 = (double) i;
-            Double.isNaN(d11);
-            double d12 = d11 / d4;
-            double d13 = (double) (((float) it) * f);
-            Double.isNaN(d13);
-            float f4 = (float) (d12 - d13);
-            double d14 = (double) this.f83xf;
-            Double.isNaN(d14);
-            float f5 = (float) (d14 - (d10 * 0.005d));
-            double d15 = (double) i;
-            Double.isNaN(d15);
-            double d16 = (double) (((float) it) * f);
-            Double.isNaN(d16);
-            canvas.drawLine((float) (d9 + (d10 * 0.005d)), f4, f5, (float) ((d15 / 2.0d) - d16), this.otroPincel);
+            canvas.drawLine((float) (this.f82x0 + (this.dig * 0.005d)), (float)((this.height / 2.0d) - (it *  this.dis)), (float) (this.f83xf - (this.dig * 0.005d)), (float) ((this.height / 2.0d) - (it *  this.dis)), this.otroPincel);
             it++;
-            d4 = 2.0d;
         }
         int it2 = it - 1;
-        this.desdeDondeH = (float) (((i / 2.0d) - (it2 * f)) - f2);
+        this.desdeDondeH = (float) (((this.height / 2.0d) - (it2 *  this.dis)) - this.f84y0);
         this.ncolumnasZoom = it2;
         int it3 = 1;
         while (true) {
