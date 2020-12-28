@@ -253,21 +253,7 @@ public class Rejilla extends View {
             if (j2 > this.columnas - 1) {
                 break;
             }
-            float f14 = this.f82x0;
-            double d11 = (double) f14;
-            double d12 = this.dig;
-            Double.isNaN(d11);
-            double d13 = d11 + (d12 * 0.005d);
-            float f15 = this.dis;
-            double d14 = (double) (((float) j2) * f15);
-            Double.isNaN(d14);
-            float f16 = this.f84y0;
-            double d15 = (double) f14;
-            Double.isNaN(d15);
-            double d16 = d15 + (d12 * 0.005d);
-            double d17 = (double) (((float) j2) * f15);
-            Double.isNaN(d17);
-            canvas.drawLine((float) (d13 + d14), f16, (float) (d16 + d17), this.f85yf, this.otroPincel);
+            canvas.drawLine((float) (this.f82x0 + (this.dig * 0.005d) + ( j2 * this.dis)), this.f84y0, (float) (this.f82x0 + (this.dig * 0.005d) + (j2 * this.dis)), this.f85yf, this.otroPincel);
             j2++;
         }
         if (this.dis == this.disi) {
