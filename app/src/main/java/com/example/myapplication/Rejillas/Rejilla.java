@@ -1309,39 +1309,12 @@ public class Rejilla extends View {
             d4 = 2.0d;
         }
         int it2 = it - 1;
-        double d17 = (double) i;
-        Double.isNaN(d17);
-        double d18 = (double) (((float) it2) * f);
-        Double.isNaN(d18);
-        double d19 = (double) f2;
-        Double.isNaN(d19);
-        this.desdeDondeH = (float) (((d17 / 2.0d) - d18) - d19);
+        this.desdeDondeH = (float) (((i / 2.0d) - (it2 * f)) - f2);
         this.ncolumnasZoom = it2;
         int it3 = 1;
         while (true) {
-            int i3 = this.height;
-            double d20 = (double) i3;
-            Double.isNaN(d20);
-            float f6 = this.dis;
-            double d21 = (double) (((float) it3) * f6);
-            Double.isNaN(d21);
-            if ((d20 / 2.0d) + d21 < ((double) this.f85yf)) {
-                double d22 = (double) this.f82x0;
-                double d23 = this.dig;
-                Double.isNaN(d22);
-                float f7 = (float) (d22 + (d23 * 0.005d));
-                double d24 = (double) i3;
-                Double.isNaN(d24);
-                double d25 = (double) (((float) it3) * f6);
-                Double.isNaN(d25);
-                float f8 = (float) ((d24 / 2.0d) + d25);
-                double d26 = (double) this.f83xf;
-                Double.isNaN(d26);
-                double d27 = (double) i3;
-                Double.isNaN(d27);
-                double d28 = (double) (((float) it3) * f6);
-                Double.isNaN(d28);
-                canvas.drawLine(f7, f8, (float) (d26 - (d23 * 0.005d)), (float) ((d27 / 2.0d) + d28), this.otroPincel);
+            if ((this.height / 2.0d) + (it3 * this.dis) < ((double) this.f85yf)) {
+                canvas.drawLine((float) (this.f82x0 + (this.dig * 0.005d)), (float) (( this.height / 2.0d) + (it3 * this.dis)), (float) (this.f83xf - ( this.dig * 0.005d)), (float) ((this.height / 2.0d) +  (it3 * this.dis)), this.otroPincel);
                 it3++;
             } else {
                 this.ncolumnasZoom += it3;
@@ -1349,13 +1322,6 @@ public class Rejilla extends View {
             }
         }
     }
-
-    /* JADX WARNING: Removed duplicated region for block: B:329:0x06c4  */
-    /* JADX WARNING: Removed duplicated region for block: B:330:0x06c6  */
-    /* JADX WARNING: Removed duplicated region for block: B:333:0x06ce  */
-    /* JADX WARNING: Removed duplicated region for block: B:334:0x06d0  */
-    /* JADX WARNING: Removed duplicated region for block: B:337:0x06d4  */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     public float[] obtenerLineas(float x, float y, float zoom, float lineaDeEnfoqueV2, float lineaDeEnfoqueH2, float ncolumnasZoom2, boolean band) {
         float lineaH=0;
         if ((((x < this.f82x0) | (x > this.f83xf)) || (y < this.f84y0)) || (y > this.f85yf)) {

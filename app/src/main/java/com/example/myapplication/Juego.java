@@ -402,7 +402,7 @@ public class Juego extends AppCompatActivity {
         Jugador[] jugadorArr = new Jugador[(this.jugadores + 1)];
         this.jugador = jugadorArr;
         jugadorArr[1] = new Jugador(1,obtenerColor(), this);
-        this.jugador[0] = new IA("normal", this, this.arbitro);
+        this.jugador[0] = new IA("dificil", this, this.arbitro);
 
         if (this.jugadores > 1) {
             for(int i = 2; i<=(jugadores); i++)
