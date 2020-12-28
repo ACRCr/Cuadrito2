@@ -333,7 +333,6 @@ public class Rejilla extends View {
                                     }
                                 }
                                 i7++;
-                                jugadorArr2 = jugadorArr;
                             }
                             i7++;
                             jugadorArr2 = jugadorArr;
@@ -342,13 +341,12 @@ public class Rejilla extends View {
                 } else if (jugador.getToques().size() > 0) {
                     int i8 = (int) calcularFilaDeInicioYfinal()[0];
                     while (true) {
-                        int i9 = 1;
                         if (i8 > ((int) calcularFilaDeInicioYfinal()[1])) {
                             break;
                         }
                         int j7 = (int) calcularCloumnaDeInicioYfinal()[0];
-                        while (j7 < ((int) calcularCloumnaDeInicioYfinal()[i9])) {
-                            if (!(((this.lineasPorFila * (i8 + -1)) + j7) - i9 < this.toquesOrganizadosCompartidos.size()) || !(((this.lineasPorFila * (i8 + -1)) + j7) - 1 >= 0)) {
+                        while (j7 < ((int) calcularCloumnaDeInicioYfinal()[1])) {
+                            if (!(((this.lineasPorFila * (i8 + -1)) + j7) - 1 < this.toquesOrganizadosCompartidos.size()) || !(((this.lineasPorFila * (i8 + -1)) + j7) - 1 >= 0)) {
                                 j = j7;
                                 i3 = i8;
                                 i4 = i6;
@@ -361,69 +359,33 @@ public class Rejilla extends View {
                                 int lineaH3 = (int) array2[1];
                                 float distanciaV2 = array2[2];
                                 float distanciaH2 = array2[3];
-                                boolean z11 = this.dis == this.disi;
-                                boolean z12 = this.lineaDeEnfoqueV <= 4.0f;
-                                float f32 = this.lineaDeEnfoqueH;
-                                double d43 = this.ncolumnasZoom;
-                                if (z11 || (z12 && (f32 <= ((float) ((int) (d43 / 2.0d)))))) {
+                                if (this.dis == this.disi || (this.lineaDeEnfoqueV <= 4.0f && (this.lineaDeEnfoqueH <= ((float) ((int) (this.ncolumnasZoom / 2.0d)))))) {
                                     i4 = i6;
                                      metodo(null, null, this, canvas, distanciaH2, distanciaV2, lineaV3, lineaH3, jugador.getId(), false);
                                 } else {
                                     i4 = i6;
-                                    boolean z13 = this.lineaDeEnfoqueV <= 4.0f;
-                                    float f33 = this.lineaDeEnfoqueH;
-                                    double d44 = (double) this.ncolumnasZoom;
-                                    Double.isNaN(d44);
-                                    if (z13 && (f33 >= ((float) ((this.filas - 1) - ((int) (d44 / 2.0d)))))) {
+                                    if (this.lineaDeEnfoqueV <= 4.0f && ( this.lineaDeEnfoqueH >= ((float) ((this.filas - 1) - ((int) (this.ncolumnasZoom / 2.0d)))))) {
                                         metodo(null, null, this, canvas, distanciaH2, distanciaV2, lineaV3, lineaH3 - ((this.filas - 2) - this.ncolumnasZoom), jugador.getId(), false);
                                     } else {
-                                        boolean z14 = this.lineaDeEnfoqueV <= 4.0f;
-                                        float f34 = this.lineaDeEnfoqueH;
-                                        double d45 = (double) this.ncolumnasZoom;
-                                        Double.isNaN(d45);
-                                        if (z14 && (f34 > ((float) ((int) (d45 / 2.0d))))) {
+                                        if (this.lineaDeEnfoqueV <= 4.0f && (this.lineaDeEnfoqueH > ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
                                             metodo(null, null, this, canvas, distanciaH2, distanciaV2, lineaV3, (int) (((float) lineaH3) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2)))), jugador.getId(), false);
                                         } else {
-                                            boolean z15 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
-                                            float f35 = this.lineaDeEnfoqueH;
-                                            double d46 = (double) this.ncolumnasZoom;
-                                            Double.isNaN(d46);
-                                            if (z15 && (f35 >= ((float) ((this.filas - 1) - ((int) (d46 / 2.0d)))))) {
+                                            if ( this.lineaDeEnfoqueV > ((float) (this.columnasi - 4)) && (this.lineaDeEnfoqueH >= ((float) ((this.filas - 1) - ((int) ( this.ncolumnasZoom / 2.0d)))))) {
                                                 metodo(null, null, this, canvas, distanciaH2, distanciaV2, lineaV3 - (this.columnasi - 8), lineaH3 - ((this.filas - 2) - this.ncolumnasZoom), jugador.getId(), false);
                                             } else {
-                                                boolean z16 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
-                                                float f36 = this.lineaDeEnfoqueH;
-                                                double d47 = (double) this.ncolumnasZoom;
-                                                Double.isNaN(d47);
-                                                if (z16 && (f36 > ((float) ((int) (d47 / 2.0d))))) {
+                                                if (this.lineaDeEnfoqueV > ((float) (this.columnasi - 4)) && (this.lineaDeEnfoqueH > ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
                                                     metodo(null, null, this, canvas, distanciaH2, distanciaV2, lineaV3 - (this.columnasi - 8), (int) (((float) lineaH3) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2)))), jugador.getId(), false);
                                                 } else {
-                                                    boolean z17 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
-                                                    float f37 = this.lineaDeEnfoqueH;
-                                                    double d48 = (double) this.ncolumnasZoom;
-                                                    Double.isNaN(d48);
-                                                    if (z17 && (f37 <= ((float) ((int) (d48 / 2.0d))))) {
+                                                    if (this.lineaDeEnfoqueV > ((float) (this.columnasi - 4)) && (this.lineaDeEnfoqueH <= ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
                                                         metodo(null, null, this, canvas, distanciaH2, distanciaV2, lineaV3 - (this.columnasi - 8), lineaH3, jugador.getId(), false);
                                                     } else {
-                                                        boolean z18 = this.lineaDeEnfoqueV > 4.0f;
-                                                        float f38 = this.lineaDeEnfoqueH;
-                                                        double d49 = (double) this.ncolumnasZoom;
-                                                        Double.isNaN(d49);
-                                                        if (z18 && (f38 >= ((float) ((this.filas - 1) - ((int) (d49 / 2.0d)))))) {
+                                                        if (this.lineaDeEnfoqueV > 4.0f && (this.lineaDeEnfoqueH >= ((float) ((this.filas - 1) - ((int) (this.ncolumnasZoom / 2.0d)))))) {
                                                             metodo(null, null, this, canvas, distanciaH2, distanciaV2, (int) (((float) lineaV3) - (this.lineaDeEnfoqueV - 4.0f)), lineaH3 - ((this.filas - 2) - this.ncolumnasZoom), jugador.getId(), false);
                                                         } else {
-                                                            boolean z19 = this.lineaDeEnfoqueV > 4.0f;
-                                                            float f39 = this.lineaDeEnfoqueH;
-                                                            double d50 = (double) this.ncolumnasZoom;
-                                                            Double.isNaN(d50);
-                                                            if (z19 && (f39 > ((float) ((int) (d50 / 2.0d))))) {
+                                                            if (this.lineaDeEnfoqueV > 4.0f && ( this.lineaDeEnfoqueH > ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
                                                                 metodo(null, null, this, canvas, distanciaH2, distanciaV2, (int) (((float) lineaV3) - (this.lineaDeEnfoqueV - 4.0f)), (int) (((float) lineaH3) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2)))), jugador.getId(), false);
                                                             } else {
-                                                                boolean z20 = this.lineaDeEnfoqueV > 4.0f;
-                                                                float f40 = this.lineaDeEnfoqueH;
-                                                                double d51 = (double) this.ncolumnasZoom;
-                                                                Double.isNaN(d51);
-                                                                if (z20 && (f40 <= ((float) ((int) (d51 / 2.0d))))) {
+                                                                if (this.lineaDeEnfoqueV > 4.0f && (this.lineaDeEnfoqueH <= ((float) ((int) (this.ncolumnasZoom / 2.0d))))) {
                                                                     metodo(null, null, this, canvas, distanciaH2, distanciaV2, (int) (((float) lineaV3) - (this.lineaDeEnfoqueV - 4.0f)), lineaH3, jugador.getId(), false);
                                                                 }
                                                             }
@@ -442,7 +404,6 @@ public class Rejilla extends View {
                             j7 = j + 1;
                             i6 = i4;
                             i8 = i3;
-                            i9 = 1;
                         }
                         i8++;
                     }
@@ -451,28 +412,27 @@ public class Rejilla extends View {
                     i2 = i6;
                 }
                 i6 = i2 + 1;
-                jugadorArr2 = jugadorArr2;
             }
             if (this.aJugadores[1].getToques().size() <= 0) {
                 return;
             }
             if (this.dis == this.disi) {
-                for (int i10 = 0; i10 < this.f81p.size(); i10++) {
+                for (int i = 0; i < this.f81p.size(); i++) {
                     try {
-                        float cambio2 = (float) this.f81p.get(i10)[2];
-                        float cambio3 = (float) this.f81p.get(i10)[3];
-                        float cambio4 = (float) this.f81p.get(i10)[4];
+                        float cambio2 = (float) this.f81p.get(i)[2];
+                        float cambio3 = (float) this.f81p.get(i)[3];
+                        float cambio4 = (float) this.f81p.get(i)[4];
                         if (this.disi != this.dis) {
-                            if ((this.f81p.get(i10)[5] == 1) || (this.f81p.get(i10)[7] == 3)) {
+                            if ((this.f81p.get(i)[5] == 1) || (this.f81p.get(i)[7] == 3)) {
                                 boolean z21 = this.lineaDeEnfoqueV <= 4.0f;
                                 float f41 = this.lineaDeEnfoqueH;
                                 int i11 = this.filas - 1;
                                 double d52 = (double) this.ncolumnasZoom;
                                 Double.isNaN(d52);
                                 if (z21 && (f41 >= ((float) (i11 - ((int) (d52 / 2.0d)))))) {
-                                    int[] iArr = this.f81p.get(i10);
+                                    int[] iArr = this.f81p.get(i);
                                     iArr[3] = iArr[3] - ((this.filas - 2) - this.ncolumnasZoom);
-                                    int[] iArr2 = this.f81p.get(i10);
+                                    int[] iArr2 = this.f81p.get(i);
                                     iArr2[4] = iArr2[4] - ((this.filas - 2) - this.ncolumnasZoom);
                                 } else {
                                     boolean z22 = this.lineaDeEnfoqueV <= 4.0f;
@@ -480,9 +440,9 @@ public class Rejilla extends View {
                                     double d53 = (double) this.ncolumnasZoom;
                                     Double.isNaN(d53);
                                     if (z22 && (f42 > ((float) ((int) (d53 / 2.0d))))) {
-                                        int[] iArr3 = this.f81p.get(i10);
+                                        int[] iArr3 = this.f81p.get(i);
                                         iArr3[3] = (int) (((float) iArr3[3]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
-                                        int[] iArr4 = this.f81p.get(i10);
+                                        int[] iArr4 = this.f81p.get(i);
                                         iArr4[4] = (int) (((float) iArr4[4]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
                                     } else {
                                         boolean z23 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
@@ -490,11 +450,11 @@ public class Rejilla extends View {
                                         double d54 = (double) this.ncolumnasZoom;
                                         Double.isNaN(d54);
                                         if (z23 && (f43 >= ((float) ((this.filas - 1) - ((int) (d54 / 2.0d)))))) {
-                                            int[] iArr5 = this.f81p.get(i10);
+                                            int[] iArr5 = this.f81p.get(i);
                                             iArr5[2] = iArr5[2] - (this.columnasi - 8);
-                                            int[] iArr6 = this.f81p.get(i10);
+                                            int[] iArr6 = this.f81p.get(i);
                                             iArr6[3] = iArr6[3] - ((this.filas - 2) - this.ncolumnasZoom);
-                                            int[] iArr7 = this.f81p.get(i10);
+                                            int[] iArr7 = this.f81p.get(i);
                                             iArr7[4] = iArr7[4] - ((this.filas - 2) - this.ncolumnasZoom);
                                         } else {
                                             boolean z24 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
@@ -502,11 +462,11 @@ public class Rejilla extends View {
                                             double d55 = (double) this.ncolumnasZoom;
                                             Double.isNaN(d55);
                                             if (z24 && (f44 > ((float) ((int) (d55 / 2.0d))))) {
-                                                int[] iArr8 = this.f81p.get(i10);
+                                                int[] iArr8 = this.f81p.get(i);
                                                 iArr8[2] = iArr8[2] - (this.columnasi - 8);
-                                                int[] iArr9 = this.f81p.get(i10);
+                                                int[] iArr9 = this.f81p.get(i);
                                                 iArr9[3] = (int) (((float) iArr9[3]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
-                                                int[] iArr10 = this.f81p.get(i10);
+                                                int[] iArr10 = this.f81p.get(i);
                                                 iArr10[4] = (int) (((float) iArr10[4]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
                                             } else {
                                                 boolean z25 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
@@ -514,7 +474,7 @@ public class Rejilla extends View {
                                                 double d56 = (double) this.ncolumnasZoom;
                                                 Double.isNaN(d56);
                                                 if (z25 && (f45 <= ((float) ((int) (d56 / 2.0d))))) {
-                                                    int[] iArr11 = this.f81p.get(i10);
+                                                    int[] iArr11 = this.f81p.get(i);
                                                     iArr11[2] = iArr11[2] - (this.columnasi - 8);
                                                 } else {
                                                     boolean z26 = this.lineaDeEnfoqueV > 4.0f;
@@ -522,11 +482,11 @@ public class Rejilla extends View {
                                                     double d57 = (double) this.ncolumnasZoom;
                                                     Double.isNaN(d57);
                                                     if (z26 && (f46 >= ((float) ((this.filas - 1) - ((int) (d57 / 2.0d)))))) {
-                                                        int[] iArr12 = this.f81p.get(i10);
+                                                        int[] iArr12 = this.f81p.get(i);
                                                         iArr12[2] = (int) (((float) iArr12[2]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                        int[] iArr13 = this.f81p.get(i10);
+                                                        int[] iArr13 = this.f81p.get(i);
                                                         iArr13[3] = iArr13[3] - ((this.filas - 2) - this.ncolumnasZoom);
-                                                        int[] iArr14 = this.f81p.get(i10);
+                                                        int[] iArr14 = this.f81p.get(i);
                                                         iArr14[4] = iArr14[4] - ((this.filas - 2) - this.ncolumnasZoom);
                                                     } else {
                                                         boolean z27 = this.lineaDeEnfoqueV > 4.0f;
@@ -534,11 +494,11 @@ public class Rejilla extends View {
                                                         double d58 = (double) this.ncolumnasZoom;
                                                         Double.isNaN(d58);
                                                         if (z27 && (f47 > ((float) ((int) (d58 / 2.0d))))) {
-                                                            int[] iArr15 = this.f81p.get(i10);
+                                                            int[] iArr15 = this.f81p.get(i);
                                                             iArr15[2] = (int) (((float) iArr15[2]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                            int[] iArr16 = this.f81p.get(i10);
+                                                            int[] iArr16 = this.f81p.get(i);
                                                             iArr16[3] = (int) (((float) iArr16[3]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
-                                                            int[] iArr17 = this.f81p.get(i10);
+                                                            int[] iArr17 = this.f81p.get(i);
                                                             iArr17[4] = (int) (((float) iArr17[4]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
                                                         } else {
                                                             boolean z28 = this.lineaDeEnfoqueV > 4.0f;
@@ -546,7 +506,7 @@ public class Rejilla extends View {
                                                             double d59 = (double) this.ncolumnasZoom;
                                                             Double.isNaN(d59);
                                                             if (z28 && (f48 <= ((float) ((int) (d59 / 2.0d))))) {
-                                                                int[] iArr18 = this.f81p.get(i10);
+                                                                int[] iArr18 = this.f81p.get(i);
                                                                 iArr18[2] = (int) (((float) iArr18[2]) - (this.lineaDeEnfoqueV - 4.0f));
                                                             }
                                                         }
@@ -556,13 +516,13 @@ public class Rejilla extends View {
                                         }
                                     }
                                 }
-                            } else if ((this.f81p.get(i10)[6] == 2) || (this.f81p.get(i10)[8] == 4)) {
+                            } else if ((this.f81p.get(i)[6] == 2) || (this.f81p.get(i)[8] == 4)) {
                                 boolean z29 = this.lineaDeEnfoqueV <= 4.0f;
                                 float f49 = this.lineaDeEnfoqueH;
                                 double d60 = (double) this.ncolumnasZoom;
                                 Double.isNaN(d60);
                                 if (z29 && (f49 >= ((float) ((this.filas - 1) - ((int) (d60 / 2.0d)))))) {
-                                    int[] iArr19 = this.f81p.get(i10);
+                                    int[] iArr19 = this.f81p.get(i);
                                     iArr19[2] = iArr19[2] - ((this.filas - 2) - this.ncolumnasZoom);
                                 } else {
                                     boolean z30 = this.lineaDeEnfoqueV <= 4.0f;
@@ -570,7 +530,7 @@ public class Rejilla extends View {
                                     double d61 = (double) this.ncolumnasZoom;
                                     Double.isNaN(d61);
                                     if (z30 && (f50 > ((float) ((int) (d61 / 2.0d))))) {
-                                        int[] iArr20 = this.f81p.get(i10);
+                                        int[] iArr20 = this.f81p.get(i);
                                         iArr20[2] = (int) (((float) iArr20[2]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
                                     } else {
                                         boolean z31 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
@@ -578,11 +538,11 @@ public class Rejilla extends View {
                                         double d62 = (double) this.ncolumnasZoom;
                                         Double.isNaN(d62);
                                         if (z31 && (f51 >= ((float) ((this.filas - 1) - ((int) (d62 / 2.0d)))))) {
-                                            int[] iArr21 = this.f81p.get(i10);
+                                            int[] iArr21 = this.f81p.get(i);
                                             iArr21[4] = iArr21[4] - (this.columnasi - 8);
-                                            int[] iArr22 = this.f81p.get(i10);
+                                            int[] iArr22 = this.f81p.get(i);
                                             iArr22[3] = iArr22[3] - (this.columnasi - 8);
-                                            int[] iArr23 = this.f81p.get(i10);
+                                            int[] iArr23 = this.f81p.get(i);
                                             iArr23[2] = iArr23[2] - ((this.filas - 2) - this.ncolumnasZoom);
                                         } else {
                                             boolean z32 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
@@ -590,11 +550,11 @@ public class Rejilla extends View {
                                             double d63 = (double) this.ncolumnasZoom;
                                             Double.isNaN(d63);
                                             if (z32 && (f52 > ((float) ((int) (d63 / 2.0d))))) {
-                                                int[] iArr24 = this.f81p.get(i10);
+                                                int[] iArr24 = this.f81p.get(i);
                                                 iArr24[4] = iArr24[4] - (this.columnasi - 8);
-                                                int[] iArr25 = this.f81p.get(i10);
+                                                int[] iArr25 = this.f81p.get(i);
                                                 iArr25[3] = iArr25[3] - (this.columnasi - 8);
-                                                int[] iArr26 = this.f81p.get(i10);
+                                                int[] iArr26 = this.f81p.get(i);
                                                 iArr26[2] = (int) (((float) iArr26[2]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
                                             } else {
                                                 boolean z33 = this.lineaDeEnfoqueV > ((float) (this.columnasi - 4));
@@ -602,9 +562,9 @@ public class Rejilla extends View {
                                                 double d64 = (double) this.ncolumnasZoom;
                                                 Double.isNaN(d64);
                                                 if (z33 && (f53 <= ((float) ((int) (d64 / 2.0d))))) {
-                                                    int[] iArr27 = this.f81p.get(i10);
+                                                    int[] iArr27 = this.f81p.get(i);
                                                     iArr27[3] = iArr27[3] - (this.columnasi - 8);
-                                                    int[] iArr28 = this.f81p.get(i10);
+                                                    int[] iArr28 = this.f81p.get(i);
                                                     iArr28[4] = iArr28[4] - (this.columnasi - 8);
                                                 } else {
                                                     boolean z34 = this.lineaDeEnfoqueV > 4.0f;
@@ -612,11 +572,11 @@ public class Rejilla extends View {
                                                     double d65 = (double) this.ncolumnasZoom;
                                                     Double.isNaN(d65);
                                                     if (z34 && (f54 >= ((float) ((this.filas - 1) - ((int) (d65 / 2.0d)))))) {
-                                                        int[] iArr29 = this.f81p.get(i10);
+                                                        int[] iArr29 = this.f81p.get(i);
                                                         iArr29[3] = (int) (((float) iArr29[3]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                        int[] iArr30 = this.f81p.get(i10);
+                                                        int[] iArr30 = this.f81p.get(i);
                                                         iArr30[4] = (int) (((float) iArr30[4]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                        int[] iArr31 = this.f81p.get(i10);
+                                                        int[] iArr31 = this.f81p.get(i);
                                                         iArr31[2] = iArr31[2] - ((this.filas - 2) - this.ncolumnasZoom);
                                                     } else {
                                                         boolean z35 = this.lineaDeEnfoqueV > 4.0f;
@@ -624,11 +584,11 @@ public class Rejilla extends View {
                                                         double d66 = (double) this.ncolumnasZoom;
                                                         Double.isNaN(d66);
                                                         if (z35 && (f55 > ((float) ((int) (d66 / 2.0d))))) {
-                                                            int[] iArr32 = this.f81p.get(i10);
+                                                            int[] iArr32 = this.f81p.get(i);
                                                             iArr32[4] = (int) (((float) iArr32[4]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                            int[] iArr33 = this.f81p.get(i10);
+                                                            int[] iArr33 = this.f81p.get(i);
                                                             iArr33[3] = (int) (((float) iArr33[3]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                            int[] iArr34 = this.f81p.get(i10);
+                                                            int[] iArr34 = this.f81p.get(i);
                                                             iArr34[2] = (int) (((float) iArr34[2]) - (this.lineaDeEnfoqueH - ((float) (this.ncolumnasZoom / 2))));
                                                         } else {
                                                             boolean z36 = this.lineaDeEnfoqueV > 4.0f;
@@ -636,9 +596,9 @@ public class Rejilla extends View {
                                                             double d67 = (double) this.ncolumnasZoom;
                                                             Double.isNaN(d67);
                                                             if (z36 && (f56 <= ((float) ((int) (d67 / 2.0d))))) {
-                                                                int[] iArr35 = this.f81p.get(i10);
+                                                                int[] iArr35 = this.f81p.get(i);
                                                                 iArr35[4] = (int) (((float) iArr35[4]) - (this.lineaDeEnfoqueV - 4.0f));
-                                                                int[] iArr36 = this.f81p.get(i10);
+                                                                int[] iArr36 = this.f81p.get(i);
                                                                 iArr36[3] = (int) (((float) iArr36[3]) - (this.lineaDeEnfoqueV - 4.0f));
                                                             }
                                                         }
@@ -650,40 +610,40 @@ public class Rejilla extends View {
                                 }
                             }
                         }
-                        if (this.f81p.get(i10)[9] != 0) {
-                            this.pintaCajas.setColor(this.f81p.get(i10)[9]);
-                            if (this.f81p.get(i10)[5] == 1) {
-                                if (this.f81p.get(i10)[3] > this.f81p.get(i10)[4]) {
-                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) (this.f81p.get(i10)[2] - 1)) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[4]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[2]) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[3]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
+                        if (this.f81p.get(i)[9] != 0) {
+                            this.pintaCajas.setColor(this.f81p.get(i)[9]);
+                            if (this.f81p.get(i)[5] == 1) {
+                                if (this.f81p.get(i)[3] > this.f81p.get(i)[4]) {
+                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) (this.f81p.get(i)[2] - 1)) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[4]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[2]) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[3]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
                                 } else {
-                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) (this.f81p.get(i10)[2] - 1)) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[3]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[2]) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[4]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
+                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) (this.f81p.get(i)[2] - 1)) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[3]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[2]) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[4]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
                                 }
                             }
-                            if (this.f81p.get(i10)[6] == 2) {
-                                if (this.f81p.get(i10)[3] > this.f81p.get(i10)[4]) {
-                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[4]) * this.dis), this.f84y0 + (((float) (this.f81p.get(i10)[2] - 1)) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[3]) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[2]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
+                            if (this.f81p.get(i)[6] == 2) {
+                                if (this.f81p.get(i)[3] > this.f81p.get(i)[4]) {
+                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[4]) * this.dis), this.f84y0 + (((float) (this.f81p.get(i)[2] - 1)) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[3]) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[2]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
                                 } else {
-                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[3]) * this.dis), this.f84y0 + (((float) (this.f81p.get(i10)[2] - 1)) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[4]) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[2]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
+                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[3]) * this.dis), this.f84y0 + (((float) (this.f81p.get(i)[2] - 1)) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[4]) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[2]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
                                 }
                             }
-                            if (this.f81p.get(i10)[7] == 3) {
-                                if (this.f81p.get(i10)[3] > this.f81p.get(i10)[4]) {
-                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[2]) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[4]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) (this.f81p.get(i10)[2] + 1)) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[3]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
+                            if (this.f81p.get(i)[7] == 3) {
+                                if (this.f81p.get(i)[3] > this.f81p.get(i)[4]) {
+                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[2]) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[4]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) (this.f81p.get(i)[2] + 1)) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[3]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
                                 } else {
-                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[2]) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[3]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) (this.f81p.get(i10)[2] + 1)) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[4]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
+                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[2]) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[3]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) (this.f81p.get(i)[2] + 1)) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[4]) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
                                 }
                             }
-                            if (this.f81p.get(i10)[8] == 4) {
-                                if (this.f81p.get(i10)[3] > this.f81p.get(i10)[4]) {
-                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[4]) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[2]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[3]) * this.dis), this.f84y0 + (((float) (this.f81p.get(i10)[2] + 1)) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
+                            if (this.f81p.get(i)[8] == 4) {
+                                if (this.f81p.get(i)[3] > this.f81p.get(i)[4]) {
+                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[4]) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[2]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[3]) * this.dis), this.f84y0 + (((float) (this.f81p.get(i)[2] + 1)) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
                                 } else {
-                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[3]) * this.dis), this.f84y0 + (((float) this.f81p.get(i10)[2]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i10)[4]) * this.dis), this.f84y0 + (((float) (this.f81p.get(i10)[2] + 1)) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
+                                    canvas.drawRect(this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[3]) * this.dis), this.f84y0 + (((float) this.f81p.get(i)[2]) * this.dis) + (this.desdeDondeH * 1.0f), this.f82x0 + this.desdeDonde + (((float) this.f81p.get(i)[4]) * this.dis), this.f84y0 + (((float) (this.f81p.get(i)[2] + 1)) * this.dis) + (this.desdeDondeH * 1.0f), this.pintaCajas);
                                 }
                             }
                         }
-                        this.f81p.get(i10)[2] = (int) cambio2;
-                        this.f81p.get(i10)[3] = (int) cambio3;
-                        this.f81p.get(i10)[4] = (int) cambio4;
+                        this.f81p.get(i)[2] = (int) cambio2;
+                        this.f81p.get(i)[3] = (int) cambio3;
+                        this.f81p.get(i)[4] = (int) cambio4;
                     } catch (Exception e) {
                     }
                 }
