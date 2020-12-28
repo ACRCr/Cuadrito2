@@ -234,7 +234,7 @@ public class Rejilla extends View {
 
     /* access modifiers changed from: protected */
     public void onDraw(Canvas canvas) {
-        int i;
+
         int i2;
         Jugador[] jugadorArr;
         int lineaH;
@@ -242,42 +242,12 @@ public class Rejilla extends View {
         int i3;
         int j;
         int i4;
-        float f;
-        float f2;
-        float f3;
         super.onDraw(canvas);
-        double d = (double) this.f82x0;
-        double d2 = this.dig;
-        Double.isNaN(d);
-        float f4 = (float) (d - (d2 * 0.005d));
-        float f5 = this.f84y0;
-        double d3 = (double) f5;
-        Double.isNaN(d3);
-        float f6 = (float) (d3 - (d2 * 0.005d));
-        double d4 = (double) this.f83xf;
-        Double.isNaN(d4);
-        float f7 = (float) (d4 + (d2 * 0.005d));
-        double d5 = (double) f5;
-        Double.isNaN(d5);
-        canvas.drawLine(f4, f6, f7, (float) (d5 - (d2 * 0.005d)), this.pintaRejilla);
-        float f8 = this.f82x0;
-        canvas.drawLine(f8, this.f84y0, f8, this.f85yf, this.pintaRejilla);
-        double d6 = (double) this.f82x0;
-        double d7 = this.dig;
-        Double.isNaN(d6);
-        float f9 = (float) (d6 - (d7 * 0.005d));
-        float f10 = this.f85yf;
-        double d8 = (double) f10;
-        Double.isNaN(d8);
-        float f11 = (float) (d8 + (d7 * 0.005d));
-        double d9 = (double) this.f83xf;
-        Double.isNaN(d9);
-        float f12 = (float) (d9 + (d7 * 0.005d));
-        double d10 = (double) f10;
-        Double.isNaN(d10);
-        canvas.drawLine(f9, f11, f12, (float) (d10 + (d7 * 0.005d)), this.pintaRejilla);
-        float f13 = this.f83xf;
-        canvas.drawLine(f13, this.f84y0, f13, this.f85yf, this.pintaRejilla);
+
+        canvas.drawLine((float) (this.f82x0 - (this.dig * 0.005d)), (float) ( this.f84y0 - (this.dig * 0.005d)),  (float) (this.f83xf + (this.dig * 0.005d)), (float) (this.f84y0 - (this.dig * 0.005d)), this.pintaRejilla);
+        canvas.drawLine(this.f82x0, this.f84y0, this.f82x0, this.f85yf, this.pintaRejilla);
+        canvas.drawLine((float) (this.f82x0 - ( this.dig * 0.005d)), (float) (this.f85yf + (this.dig * 0.005d)), (float) (this.f83xf + (this.dig * 0.005d)), (float) (this.f85yf + (this.dig * 0.005d)), this.pintaRejilla);
+        canvas.drawLine(this.f83xf, this.f84y0, this.f83xf, this.f85yf, this.pintaRejilla);
         int j2 = 1;
         while (true) {
             if (j2 > this.columnas - 1) {
@@ -303,7 +273,7 @@ public class Rejilla extends View {
         if (this.dis == this.disi) {
             this.desdeDondeH = 0.0f;
             int j3 = 1;
-            for (i = 1; j3 <= this.f79h - i; i = 1) {
+            for (int i = 1; j3 <= this.f79h - i; i = 1) {
                 float f17 = this.f82x0;
                 double d18 = (double) f17;
                 double d19 = this.dig;
@@ -353,10 +323,7 @@ public class Rejilla extends View {
                 if (f20 >= ((float) ((this.filas - 1) - ((int) (d29 / 2.0d))))) {
                     int j5 = 1;
                     while (true) {
-                        f = this.f85yf;
-                        f2 = this.dis;
-                        f3 = this.f84y0;
-                        if (f - (((float) j5) * f2) <= f3) {
+                        if (this.f85yf - (((float) j5) * this.dis) <=  this.f84y0) {
                             break;
                         }
                         double d30 = (double) this.f82x0;
@@ -364,11 +331,11 @@ public class Rejilla extends View {
                         Double.isNaN(d30);
                         double d32 = (double) this.f83xf;
                         Double.isNaN(d32);
-                        canvas.drawLine((float) (d30 + (d31 * 0.005d)), f - (((float) j5) * f2), (float) (d32 - (d31 * 0.005d)), f - (((float) j5) * f2), this.otroPincel);
+                        canvas.drawLine((float) (d30 + (d31 * 0.005d)), this.f85yf - (((float) j5) * this.dis), (float) (d32 - (d31 * 0.005d)), this.f85yf - (((float) j5) * this.dis), this.otroPincel);
                         j5++;
                     }
                     int j6 = j5 - 1;
-                    this.desdeDondeH = (f - (((float) (j6 + 1)) * f2)) - f3;
+                    this.desdeDondeH = (this.f85yf - (((float) (j6 + 1)) * this.dis)) -  this.f84y0;
                     this.ncolumnasZoom = j6;
                 } else {
                     double d33 = (double) i5;
