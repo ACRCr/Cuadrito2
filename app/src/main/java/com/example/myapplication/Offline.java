@@ -62,26 +62,11 @@ public class Offline extends AppCompatActivity {
             @Override // android.widget.AdapterView.OnItemSelectedListener
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Offline.this.posicionPlayers = i;
-                View decorView = getWindow().getDecorView();
-                // Hide the status bar.
-                int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN  | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-                decorView.setSystemUiVisibility(uiOptions);
-                // Remember that you should never show the action bar if the
-                // status bar is hidden, so hide that too if necessary.
-                ActionBar actionBar = getSupportActionBar();
-                actionBar.hide();
+
             }
 
             @Override // android.widget.AdapterView.OnItemSelectedListener
             public void onNothingSelected(AdapterView<?> adapterView) {
-                View decorView = getWindow().getDecorView();
-                // Hide the status bar.
-                int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN  | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-                decorView.setSystemUiVisibility(uiOptions);
-                // Remember that you should never show the action bar if the
-                // status bar is hidden, so hide that too if necessary.
-                ActionBar actionBar = getSupportActionBar();
-                actionBar.hide();
             }
         });
         EditText editText = (EditText) findViewById(R.id.morePlayers2);
@@ -123,11 +108,10 @@ public class Offline extends AppCompatActivity {
                     Toast.makeText(this, "" + Integer.parseInt(this.editColumns.getText().toString()), Toast.LENGTH_SHORT).show();
                     if (Integer.parseInt(this.editColumns.getText().toString()) > 1) {
                         intent.putExtra("posicion", Integer.parseInt(this.editColumns.getText().toString()));
-                        startActivity(intent);
 
                     }
                 }else {
-                    Toast.makeText(this, "ENTER NUMBERS LESS THAN 51, GREATER THAN 1", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "ENTER NUMBERS LESS THAN 31, GREATER THAN 1", Toast.LENGTH_SHORT).show();
                     return;
                 }
             } catch (Exception e) {
@@ -135,6 +119,7 @@ public class Offline extends AppCompatActivity {
                 return;
             }
         }
+        startActivity(intent);
     }
 
     public void jugar(View view) {
@@ -163,16 +148,16 @@ public class Offline extends AppCompatActivity {
                 if (Integer.parseInt(this.editColumns.getText().toString()) <= 50 & (Integer.parseInt(this.editColumns.getText().toString()) > 1)) {
 
                         intent.putExtra("posicion", Integer.parseInt(this.editColumns.getText().toString()));
-                        startActivity(intent);
 
                 }else{
-                Toast.makeText(this, "ENTER NUMBERS LESS THAN 51, GREATER THAN 1", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "ENTER NUMBERS LESS THAN 31, GREATER THAN 1", Toast.LENGTH_LONG).show();
 
                 };
             } catch (Exception e2) {
                 Toast.makeText(this, "ENTER VALUE", Toast.LENGTH_LONG).show();
             }
         }
+        startActivity(intent);
     }
 
     public void onCheckboxClickedPlayer(View view) {
