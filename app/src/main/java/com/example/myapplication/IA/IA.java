@@ -65,7 +65,7 @@ public class IA extends Jugador {
         int[] array2 = new int[10];
         array2[0] = getId();
         float[] pos = new float[6];
-        int[] criterios = generaCriterios("dificil");
+        int[] criterios = generaCriterios(dificultad);
         Log.i("testt6", "goal" + criterios[0] + " " + criterios[2]);
         if (criterios[0] == 1) {
             array = this.posicionesCompletarCuadro.get(0);

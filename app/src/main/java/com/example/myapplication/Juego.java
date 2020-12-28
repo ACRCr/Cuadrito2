@@ -43,7 +43,7 @@ public class Juego extends AppCompatActivity {
     private DrawRejillaCompleta rejillaCompleta;
     private Thread tIA;
     private Thread tZoom;
-    public int tiempoEspera = 175;
+    public int tiempoEspera = 200;
     private Thread tjugador;
     private float toqueaX;
     private float toqueaY;
@@ -95,7 +95,7 @@ public class Juego extends AppCompatActivity {
         Jugador[] jugadorArr = new Jugador[(this.jugadores + 1)];
         this.jugador = jugadorArr;
         jugadorArr[1] = new Jugador(1, SupportMenu.CATEGORY_MASK, this);
-        this.jugador[0] = new IA("facil", this, this.arbitro);
+        this.jugador[0] = new IA("normal", this, this.arbitro);
         if (this.jugadores > 1) {
             this.jugador[2] = new Jugador(2, -16711936, this);
         }
@@ -179,7 +179,7 @@ public class Juego extends AppCompatActivity {
             rejilla2.setDesdeDonde((float) (dig * 0.005d));
             setContentView(this.drawToquesYCuadritos);
             this.band2 = false;
-            if ((this.tiempoEspera < 175) && (this.columnas > 8)) {
+            if ((this.tiempoEspera < 200) && (this.columnas > 8)) {
                 this.zoom = true;
                 this.band2 = true;
                 this.cuentaRegresiva.interrupt();
@@ -224,7 +224,7 @@ public class Juego extends AppCompatActivity {
         boolean z = false;
         try {
             this.tiempoEspera = 0;
-            while (this.tiempoEspera <= 175) {
+            while (this.tiempoEspera <= 200) {
                 try {
                     Thread.sleep(1);
                 } catch (InterruptedException e) {
