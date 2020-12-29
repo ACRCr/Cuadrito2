@@ -35,7 +35,7 @@ public class DrawToquesYCuadritos extends Rejilla {
         this.desdeDonde = (float) (dig * 0.005d);
         this.pincelBorde = new Paint();
         this.pincelBorde.setStrokeWidth((float) (getDig() * 0.005d));
-        this.pincelBorde.setColor(Color.GREEN);
+        this.pincelBorde.setColor(Color.WHITE);
         this.pincelBorde.setStyle(Paint.Style.STROKE);
     }
 
