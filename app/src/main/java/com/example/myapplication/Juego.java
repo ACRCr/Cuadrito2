@@ -403,7 +403,11 @@ public class Juego extends AppCompatActivity {
     private void setJugadores(){
         Jugador[] jugadorArr = new Jugador[(this.jugadores + 1)];
         this.jugador = jugadorArr;
-        jugadorArr[1] = new Jugador(1,obtenerColor(), this);
+        int notBlue = Color.BLUE;
+        while (notBlue == Color.BLUE ){
+            notBlue = obtenerColor();
+        }
+        jugadorArr[1] = new Jugador(1,notBlue, this);
         this.jugador[0] = new IA("dificil", this, this.arbitro);
 
         if (this.jugadores > 1) {
