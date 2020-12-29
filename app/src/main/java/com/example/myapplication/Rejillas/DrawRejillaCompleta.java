@@ -2,9 +2,13 @@ package com.example.myapplication.Rejillas;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.os.Build;
 import android.util.Log;
 
+import androidx.annotation.RequiresApi;
+
 public class DrawRejillaCompleta extends Rejilla {
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     public DrawRejillaCompleta(Context contexto, int columns, Object o) {
         super(contexto, columns, o);
     }

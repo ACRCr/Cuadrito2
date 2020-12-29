@@ -295,7 +295,7 @@ public class Juego extends AppCompatActivity {
                 this.quienJuega++;
                 if (this.zoom) {
                     this.jugador[id].setToques(this.f46x, this.f47y, this.rejilla.setDis(8.0f), this.rejilla.getReferenciasDeAumento());
-                    llenarToquesOrganizadosCompartidos(this.jugador[id].getToques().getLast(), 1);
+                    llenarToquesOrganizadosCompartidos(this.jugador[id].getToques().getLast(), id);
                     float[] toque = {(float) id, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
                     for (int i3 = 0; i3 < this.jugador[id].getToques().getLast().length; i3++) {
                         toque[i3 + 1] = this.jugador[id].getToques().getLast()[i3];
@@ -303,7 +303,7 @@ public class Juego extends AppCompatActivity {
                     this.toques.add(toque);
                 } else {
                     this.jugador[id].setToques(this.f46x, this.f47y, this.rejilla.setDis((float) this.columnas), null);
-                    llenarToquesOrganizadosCompartidos(this.jugador[id].getToques().getLast(), 1);
+                    llenarToquesOrganizadosCompartidos(this.jugador[id].getToques().getLast(), id );
                     float[] toque2 = {(float) id, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
                     for (int i4 = 0; i4 < this.jugador[id].getToques().getLast().length; i4++) {
                         toque2[i4 + 1] = this.jugador[id].getToques().getLast()[i4];
@@ -328,6 +328,8 @@ public class Juego extends AppCompatActivity {
             }
         }
     }
+
+
 
     public /* synthetic */ void lambda$onTouchEvent$2$Juego() {
         int i = this.jugadores;

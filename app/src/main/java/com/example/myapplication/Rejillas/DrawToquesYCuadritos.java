@@ -62,15 +62,12 @@ public class DrawToquesYCuadritos extends Rejilla {
                     int lineaH3 = (int) array[1];
                     float distanciaV = array[2];
                     float distanciaH = array[3];
-                    boolean z2 = getDis() == getDisi();
-                    boolean z3 = getReferenciasDeAumento()[0] <= 4.0f;
                     float f = getReferenciasDeAumento()[1];
                     double d = (double) getReferenciasDeAumento()[2];
                     Double.isNaN(d);
-                    if (z2 || (z3 && (f <= ((float) ((int) (d / 2.0d)))))) {
+                    if ( getDis() == getDisi() || (getReferenciasDeAumento()[0] <= 4.0f && (f <= ((float) ((int) (d / 2.0d)))))) {
                         lineaH2 = lineaH3;
                         metodo(null, null, this, canvas, distanciaH, distanciaV, lineaV2, lineaH2, (int) this.toques.get(i4)[0], false);
-                        lineaV = lineaV2;
                         lineaH = i4;
                     } else {
                         boolean z4 = getReferenciasDeAumento()[0] <= 4.0f;
