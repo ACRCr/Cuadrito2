@@ -3,12 +3,15 @@ package com.example.myapplication.Rejillas;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
 import com.example.myapplication.Juego;
+import com.example.myapplication.Jugador;
+
 import java.util.LinkedList;
 
 public class DrawToquesYCuadritos extends Rejilla {
@@ -17,6 +20,8 @@ public class DrawToquesYCuadritos extends Rejilla {
     private int desdeDondeH = 0;
     private Paint pincelRojo = getPincelRojo();
     private Paint pinta = new Paint();
+    Paint pincelBorde = new Paint();
+
     private Paint pintaCajas = getPintaCajas();
     private LinkedList<int[]> positions;
     private Bitmap rejillaCompleta;
@@ -28,6 +33,10 @@ public class DrawToquesYCuadritos extends Rejilla {
         double dig = (double) getDig();
         Double.isNaN(dig);
         this.desdeDonde = (float) (dig * 0.005d);
+        this.pincelBorde = new Paint();
+        this.pincelBorde.setStrokeWidth((float) (getDig() * 0.005d));
+        this.pincelBorde.setColor(Color.GREEN);
+        this.pincelBorde.setStyle(Paint.Style.STROKE);
     }
 
     /* access modifiers changed from: protected */
@@ -42,10 +51,19 @@ public class DrawToquesYCuadritos extends Rejilla {
         boolean z = false;
         float x0 = getMargenes()[0];
         float y0 = getMargenes()[1];
-        canvas.drawBitmap(this.rejillaCompleta, 0.0f, 0.0f, (Paint) null);
-        setDesdeDondeH(0.0f);
+        float xf= getMargenes()[2];
+        float yf = getMargenes()[3];
         double dig = (double) getDig();
-        Double.isNaN(dig);
+        canvas.drawBitmap(this.rejillaCompleta, 0.0f, 0.0f, (Paint) null);
+        canvas.drawLine((float) (x0 - (3.0/2.0)*(dig * 0.005d)), (float) (y0 - (dig * 0.005d) - (dig * 0.0045d)),  (float) (xf + (3.0/2.0)*(dig * 0.005d)), (float) (y0 - (dig * 0.0045d) - (dig * 0.005d)), pincelBorde);
+        canvas.drawLine((float)((x0)- (dig * 0.005d)),y0 - (float) (dig * 0.01d), (float) (x0 - (dig * 0.005d)), yf + (float) (dig * 0.01d), pincelBorde);
+        canvas.drawLine((float) (x0 - (3.0/2.0)*(dig * 0.005d)), (float) (yf + (dig * 0.005d) + (dig * 0.0045d)), (float) (xf + (3.0/2.0)*(dig * 0.005d)), (float) (yf + (dig * 0.005d) + (dig * 0.0045d)), pincelBorde);
+        canvas.drawLine((float) (xf + (dig * 0.005d)),y0 - (float) (dig * 0.01d) , (float) (xf + (dig * 0.005d)), yf + (float) (dig * 0.01d), pincelBorde);
+        canvas.drawLine((float) (x0 - (dig * 0.005d)), (float) ( y0 - (dig * 0.005d)),  (float) (xf + (dig * 0.005d)), (float) (y0 - (dig * 0.005d)), getPintaRejilla());
+        canvas.drawLine(x0, y0, x0, yf, getPintaRejilla());
+        canvas.drawLine((float) (x0 - ( dig * 0.005d)), (float) (yf + (dig * 0.005d)), (float) (xf + (dig * 0.005d)), (float) (yf + (dig * 0.005d)), getPintaRejilla());
+        canvas.drawLine(xf, y0, xf, yf, getPintaRejilla());
+        setDesdeDondeH(0.0f);
         setDesdeDonde((float) (dig * 0.005d));
         if (getO() instanceof Juego) {
             char c = 3;
@@ -228,5 +246,9 @@ public class DrawToquesYCuadritos extends Rejilla {
 
     public void setPositions(LinkedList<int[]> positions2) {
         this.positions = positions2;
+    }
+
+    public void setColorPintaBorde(int color) {
+        pincelBorde.setColor(color);
     }
 }

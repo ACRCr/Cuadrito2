@@ -3,6 +3,7 @@ package com.example.myapplication.Rejillas;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
 import android.util.DisplayMetrics;
@@ -50,6 +51,7 @@ public class Rejilla extends View {
 
     private Object o;
     private final Paint otroPincel;
+    private Paint pincelBorde;
 
     /* renamed from: p */
     private LinkedList<int[]> f81p;
@@ -223,10 +225,8 @@ public class Rejilla extends View {
         int j;
         int i4;
         super.onDraw(canvas);
-        canvas.drawLine((float) (this.f82x0 - (this.dig * 0.005d)), (float) ( this.f84y0 - (this.dig * 0.005d)),  (float) (this.f83xf + (this.dig * 0.005d)), (float) (this.f84y0 - (this.dig * 0.005d)), this.pintaRejilla);
-        canvas.drawLine(this.f82x0, this.f84y0, this.f82x0, this.f85yf, this.pintaRejilla);
-        canvas.drawLine((float) (this.f82x0 - ( this.dig * 0.005d)), (float) (this.f85yf + (this.dig * 0.005d)), (float) (this.f83xf + (this.dig * 0.005d)), (float) (this.f85yf + (this.dig * 0.005d)), this.pintaRejilla);
-        canvas.drawLine(this.f83xf, this.f84y0, this.f83xf, this.f85yf, this.pintaRejilla);
+
+
         int j2 = 1;
         while (true) {
             if (j2 > this.columnas - 1) {
@@ -1476,6 +1476,10 @@ public class Rejilla extends View {
         return linasIF;
     }
 
+    public Paint getPincelBorde() {
+        return pincelBorde;
+    }
+
     public Paint getPintaCajas() {
         return this.pintaCajas;
     }
@@ -1487,7 +1491,9 @@ public class Rejilla extends View {
     public void setPosicionesOrganizadas(LinkedList<int[]> posicionesOrganizadas2) {
         this.posicionesOrganizadas = posicionesOrganizadas2;
     }
-
+    public void setColorPintaBorde(int color){
+        pincelBorde.setColor(color);
+    }
     public int getLineasPorFila() {
         return this.lineasPorFila;
     }

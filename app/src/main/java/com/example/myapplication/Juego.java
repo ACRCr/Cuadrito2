@@ -25,6 +25,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Juego extends AppCompatActivity {
     private Arbitro arbitro;
+    private int cont = 0;
     private int[] coloresAsignados = {0,0,0,0,0,0,0};
     private boolean band2;
     private int columnas;
@@ -59,6 +60,7 @@ public class Juego extends AppCompatActivity {
     /* renamed from: y */
     private float f47y;
     private boolean zoom;
+    private int id;
 
     /* access modifiers changed from: protected */
     public void onResume() {
@@ -153,6 +155,7 @@ public class Juego extends AppCompatActivity {
             e.printStackTrace();
         }
         if (event.getAction() == 1) {
+
             this.toques.clear();
             this.posicionesTemporales.clear();
             this.f46x = 0.0f;
@@ -202,10 +205,20 @@ public class Juego extends AppCompatActivity {
                 }
             }
         }
+        int nquienjuega = quienJuega;
+        if(jugadores>1){
+            int n = ((nquienjuega) % (this.jugadores+1));
+            if(n==0) {
+                nquienjuega++;
+                n = ((nquienjuega ) % (this.jugadores + 1));
+            }
+            drawToquesYCuadritos.setColorPintaBorde(jugador[n].getColor());
+        }
         View v = this.drawToquesYCuadritos;
         v.setMinimumHeight((int) this.drawToquesYCuadritos.getHeightRejilla());
         v.setMinimumWidth((int) this.drawToquesYCuadritos.getWidthRejilla());
         this.drawToquesYCuadritos.setRejillaCompleta(ImageUtil.getBitmapFromView(v));
+
         return false;
     }
 
@@ -264,7 +277,7 @@ public class Juego extends AppCompatActivity {
     }
 
     public /* synthetic */ void lambda$onTouchEvent$1$Juego() {
-        int id;
+
         float[] array;
         int i = this.quienJuega;
         int i2 = this.jugadores;
@@ -411,6 +424,7 @@ public class Juego extends AppCompatActivity {
         this.jugador[0] = new IA("dificil", this, this.arbitro);
 
         if (this.jugadores > 1) {
+
             for(int i = 2; i<=(jugadores); i++)
             this.jugador[i] = new Jugador(i, obtenerColor(), this);
         }
@@ -419,6 +433,7 @@ public class Juego extends AppCompatActivity {
         this.jugador[0].setRejilla(this.rejilla);
         this.jugador[1].setRejilla(this.rejilla);
         if (this.jugadores > 1) {
+            drawToquesYCuadritos.setColorPintaBorde(jugadorArr[1].getColor());
             for(int i = 2; i<=(jugadores); i++)
             this.jugador[i].setRejilla(this.rejilla);
         }
